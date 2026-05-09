@@ -1,4 +1,5 @@
 import { AppHeader } from '@/components/nav/AppHeader'
+import { RouteTabs } from '@/components/nav/RouteTabs'
 import { WorksheetBuilder } from '@/components/tools/WorksheetBuilder'
 import { PageIntro } from '@/components/ui/PageIntro'
 import { Screen } from '@/components/ui/Screen'
@@ -10,6 +11,7 @@ export default function WorksheetRoute() {
   return (
     <Screen>
       <AppHeader />
+      <RouteTabs />
       <PageIntro
         eyebrow={t('worksheet.eyebrow')}
         title={t('worksheet.title')}

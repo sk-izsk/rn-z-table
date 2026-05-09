@@ -6,6 +6,7 @@ import {
   SOLUBILITY_DATA,
   type SolubilityCode,
 } from '@/data/tools/solubility'
+import { useAppPalette } from '@/hooks/store/useAppPalette'
 import { useAppTranslation } from '@/i18n/localize'
 import { ScrollView, Text, View } from 'react-native'
 
@@ -43,13 +44,17 @@ export const SolubilityTool = ({
   onSelectAnion,
 }: SolubilityToolProps) => {
   const { t } = useAppTranslation()
+  const { colors } = useAppPalette()
   const code = SOLUBILITY_DATA[cation][anion]
 
   return (
     <ToolCard title={t('tools.solubilityTitle')} description={t('tools.solubilityDescription')}>
       <View className="gap-4">
         <View>
-          <Text className="mb-2 text-[12px] font-bold uppercase tracking-[3px] text-slate-400">
+          <Text
+            style={{ color: colors.textMuted }}
+            className="mb-2 text-[12px] font-bold uppercase tracking-[3px]"
+          >
             {t('tools.cation')}
           </Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -70,7 +75,10 @@ export const SolubilityTool = ({
         </View>
 
         <View>
-          <Text className="mb-2 text-[12px] font-bold uppercase tracking-[3px] text-slate-400">
+          <Text
+            style={{ color: colors.textMuted }}
+            className="mb-2 text-[12px] font-bold uppercase tracking-[3px]"
+          >
             {t('tools.anion')}
           </Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -90,12 +98,21 @@ export const SolubilityTool = ({
           </ScrollView>
         </View>
 
-        <View className="rounded-[18px] border border-[#d9e6ee] bg-[#f6fbfd] px-4 py-4">
-          <Text className="text-[12px] font-bold uppercase tracking-[3px] text-slate-400">
+        <View
+          style={{
+            borderColor: colors.line,
+            backgroundColor: colors.surfaceMuted,
+          }}
+          className="rounded-[18px] border border-[#d9e6ee] bg-[#f6fbfd] px-4 py-4"
+        >
+          <Text
+            style={{ color: colors.textMuted }}
+            className="text-[12px] font-bold uppercase tracking-[3px]"
+          >
             {t('tools.lookupResult')}
           </Text>
           <View className="mt-3 flex-row items-center justify-between">
-            <Text className="text-[18px] font-black text-ink">
+            <Text style={{ color: colors.text }} className="text-[18px] font-black">
               {cation} + {anion}
             </Text>
             <View className={`rounded-full px-3 py-1.5 ${CODE_COLORS[code].split(' ')[0]}`}>
@@ -104,8 +121,10 @@ export const SolubilityTool = ({
               </Text>
             </View>
           </View>
-          <Text className="mt-2 text-[15px] text-slate-600">{solubilityLabel(code)}</Text>
-          <Text className="mt-3 text-[13px] leading-6 text-slate-500">
+          <Text style={{ color: colors.textMuted }} className="mt-2 text-[15px]">
+            {solubilityLabel(code)}
+          </Text>
+          <Text style={{ color: colors.textMuted }} className="mt-3 text-[13px] leading-6">
             {t('tools.solubilityLegend')}
           </Text>
         </View>

@@ -1,4 +1,5 @@
 import { AppHeader } from '@/components/nav/AppHeader'
+import { RouteTabs } from '@/components/nav/RouteTabs'
 import { PageIntro } from '@/components/ui/PageIntro'
 import { Screen } from '@/components/ui/Screen'
 import { SegmentedControl } from '@/components/ui/SegmentedControl'
@@ -12,6 +13,7 @@ import {
 import { useLanguage, useSetLanguage } from '@/hooks/store/useLanguageStore'
 import { useMassUnit, useSetMassUnit } from '@/hooks/store/useSettingsStore'
 import { useSetThemeMode, useThemeMode } from '@/hooks/store/useThemeStore'
+import { useAppPalette } from '@/hooks/store/useAppPalette'
 import { useAppTranslation } from '@/i18n/localize'
 import type { AppLanguage } from '@/i18n/types'
 import type { MassUnit } from '@/stores/massUnitStore'
@@ -20,6 +22,7 @@ import { Pressable, Switch, Text, View } from 'react-native'
 
 export default function SettingsRoute() {
   const { t } = useAppTranslation()
+  const { colors } = useAppPalette()
   const language = useLanguage()
   const setLanguage = useSetLanguage()
   const themeMode = useThemeMode()
@@ -34,6 +37,7 @@ export default function SettingsRoute() {
   return (
     <Screen>
       <AppHeader />
+      <RouteTabs />
       <PageIntro
         eyebrow={t('settings.eyebrow')}
         title={t('settings.title')}
@@ -86,28 +90,52 @@ export default function SettingsRoute() {
         description={t('settings.animationDescription')}
       >
         <View className="gap-4">
-          <View className="flex-row items-center justify-between rounded-[18px] border border-[#d9e6ee] bg-[#f6fbfd] px-4 py-3">
-            <Text className="text-[16px] font-semibold text-ink">
+          <View
+            style={{
+              borderColor: colors.line,
+              backgroundColor: colors.surfaceMuted,
+            }}
+            className="flex-row items-center justify-between rounded-[18px] border border-[#d9e6ee] bg-[#f6fbfd] px-4 py-3"
+          >
+            <Text style={{ color: colors.text }} className="text-[16px] font-semibold">
               {t('settings.animationSpeed')}: {animationSpeed.toFixed(2)}x
             </Text>
             <View className="flex-row gap-2">
               <Pressable
+                style={{
+                  borderColor: colors.line,
+                  backgroundColor: colors.surface,
+                }}
                 className="rounded-full border border-[#cfe0ea] bg-white px-3 py-2"
                 onPress={() => setAnimationSpeed(animationSpeed - 0.1)}
               >
-                <Text className="font-semibold text-slate-600">-</Text>
+                <Text style={{ color: colors.textMuted }} className="font-semibold">
+                  -
+                </Text>
               </Pressable>
               <Pressable
+                style={{
+                  borderColor: colors.line,
+                  backgroundColor: colors.surface,
+                }}
                 className="rounded-full border border-[#cfe0ea] bg-white px-3 py-2"
                 onPress={() => setAnimationSpeed(animationSpeed + 0.1)}
               >
-                <Text className="font-semibold text-slate-600">+</Text>
+                <Text style={{ color: colors.textMuted }} className="font-semibold">
+                  +
+                </Text>
               </Pressable>
             </View>
           </View>
 
-          <View className="flex-row items-center justify-between rounded-[18px] border border-[#d9e6ee] bg-[#f6fbfd] px-4 py-3">
-            <Text className="text-[16px] font-semibold text-ink">
+          <View
+            style={{
+              borderColor: colors.line,
+              backgroundColor: colors.surfaceMuted,
+            }}
+            className="flex-row items-center justify-between rounded-[18px] border border-[#d9e6ee] bg-[#f6fbfd] px-4 py-3"
+          >
+            <Text style={{ color: colors.text }} className="text-[16px] font-semibold">
               {t('settings.pauseAnimations')}
             </Text>
             <Switch value={animationsPaused} onValueChange={setAnimationsPaused} />

@@ -10,6 +10,10 @@ export const frUI: TranslationDict = {
     language: 'Langue',
   },
   home: {
+    eyebrow: 'Matrice du tableau',
+    title: 'Tableau periodique',
+    description:
+      'Tableau mobile consultable avec filtres localises et grille dense proche de l app source.',
     searchPlaceholder: 'Rechercher elements... (symbole, nom ou numero)',
     filters: 'Filtres des elements',
     clear: 'Effacer',

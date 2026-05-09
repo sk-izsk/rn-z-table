@@ -1,4 +1,5 @@
 import { AppHeader } from '@/components/nav/AppHeader'
+import { RouteTabs } from '@/components/nav/RouteTabs'
 import { IonReferenceList } from '@/components/tools/IonReferenceList'
 import { PageIntro } from '@/components/ui/PageIntro'
 import { Screen } from '@/components/ui/Screen'
@@ -10,6 +11,7 @@ export default function IonsRoute() {
   return (
     <Screen>
       <AppHeader />
+      <RouteTabs />
       <PageIntro
         eyebrow={t('ions.eyebrow')}
         title={t('ions.title')}

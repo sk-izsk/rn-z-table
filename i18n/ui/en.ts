@@ -10,6 +10,10 @@ export const enUI: TranslationDict = {
     language: 'Language',
   },
   home: {
+    eyebrow: 'Table Matrix',
+    title: 'Periodic Table',
+    description:
+      'Searchable mobile table, localized filters, and dense native grid aligned with the source app.',
     searchPlaceholder: 'Search elements... (symbol, name, or number)',
     filters: 'Element filters',
     clear: 'Clear',

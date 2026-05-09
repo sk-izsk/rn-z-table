@@ -1,4 +1,5 @@
 import { AppHeader } from '@/components/nav/AppHeader'
+import { RouteTabs } from '@/components/nav/RouteTabs'
 import { EquationBalancerTool } from '@/components/tools/EquationBalancerTool'
 import { MolarMassTool } from '@/components/tools/MolarMassTool'
 import { SolubilityTool } from '@/components/tools/SolubilityTool'
@@ -16,6 +17,7 @@ export default function ToolsRoute() {
   return (
     <Screen>
       <AppHeader />
+      <RouteTabs />
       <PageIntro
         eyebrow={t('tools.eyebrow')}
         title={t('tools.screenTitle')}

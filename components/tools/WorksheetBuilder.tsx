@@ -5,6 +5,7 @@ import {
   type WorksheetDifficulty,
   type WorksheetReactionType,
 } from '@/data/tools/worksheet'
+import { useAppPalette } from '@/hooks/store/useAppPalette'
 import { useAppTranslation } from '@/i18n/localize'
 import { useMemo, useState } from 'react'
 import { Share, Switch, Text, View } from 'react-native'
@@ -23,6 +24,7 @@ const DIFFICULTY_OPTIONS: WorksheetDifficulty[] = ['easy', 'medium', 'hard']
 
 export const WorksheetBuilder = () => {
   const { t } = useAppTranslation()
+  const { colors } = useAppPalette()
   const [questionCount, setQuestionCount] = useState<number>(10)
   const [difficulty, setDifficulty] = useState<WorksheetDifficulty>('medium')
   const [includeAnswerKey, setIncludeAnswerKey] = useState(true)
@@ -55,7 +57,7 @@ export const WorksheetBuilder = () => {
       <ToolCard title={t('worksheet.title')} description={t('worksheet.description')}>
         <View className="gap-5">
           <View>
-            <Text className="mb-3 text-[16px] font-semibold text-ink">
+            <Text style={{ color: colors.text }} className="mb-3 text-[16px] font-semibold">
               {t('worksheet.questionCount')}
             </Text>
             <View className="flex-row flex-wrap gap-2">
@@ -71,7 +73,7 @@ export const WorksheetBuilder = () => {
           </View>
 
           <View>
-            <Text className="mb-3 text-[16px] font-semibold text-ink">
+            <Text style={{ color: colors.text }} className="mb-3 text-[16px] font-semibold">
               {t('worksheet.reactionTypes')}
             </Text>
             <View className="gap-2">
@@ -96,7 +98,7 @@ export const WorksheetBuilder = () => {
           </View>
 
           <View>
-            <Text className="mb-3 text-[16px] font-semibold text-ink">
+            <Text style={{ color: colors.text }} className="mb-3 text-[16px] font-semibold">
               {t('worksheet.difficulty')}
             </Text>
             <View className="flex-row gap-2">
@@ -111,8 +113,14 @@ export const WorksheetBuilder = () => {
             </View>
           </View>
 
-          <View className="flex-row items-center justify-between rounded-[18px] border border-[#d9e6ee] bg-[#f6fbfd] px-4 py-3">
-            <Text className="text-[16px] font-semibold text-ink">
+          <View
+            style={{
+              borderColor: colors.line,
+              backgroundColor: colors.surfaceMuted,
+            }}
+            className="flex-row items-center justify-between rounded-[18px] border border-[#d9e6ee] bg-[#f6fbfd] px-4 py-3"
+          >
+            <Text style={{ color: colors.text }} className="text-[16px] font-semibold">
               {t('worksheet.includeAnswerKey')}
             </Text>
             <Switch value={includeAnswerKey} onValueChange={setIncludeAnswerKey} />
@@ -123,7 +131,11 @@ export const WorksheetBuilder = () => {
       <ToolCard title={t('worksheet.previewTitle')} description={t('worksheet.previewDescription')}>
         <View className="gap-3">
           {items.slice(0, Math.min(items.length, 8)).map((item, index) => (
-            <Text key={`${item.id}-${index}`} className="text-[15px] leading-6 text-slate-600">
+            <Text
+              key={`${item.id}-${index}`}
+              style={{ color: colors.textMuted }}
+              className="text-[15px] leading-6"
+            >
               {index + 1}. {item.prompt}
             </Text>
           ))}
