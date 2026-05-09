@@ -1,13 +1,8 @@
 {
   "1": {
     "oxidationStates": {
-      "common": [
-        "+1",
-        "-1"
-      ],
-      "possible": [
-        "0"
-      ]
+      "common": ["+1", "-1"],
+      "possible": ["0"]
     },
     "physical": {
       "electronegativity": "2.2",
@@ -22,9 +17,7 @@
   },
   "2": {
     "oxidationStates": {
-      "common": [
-        "0"
-      ],
+      "common": ["0"],
       "possible": []
     },
     "physical": {
@@ -40,9 +33,7 @@
   },
   "3": {
     "oxidationStates": {
-      "common": [
-        "+1"
-      ],
+      "common": ["+1"],
       "possible": []
     },
     "physical": {
@@ -58,9 +49,7 @@
   },
   "4": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
+      "common": ["+2"],
       "possible": []
     },
     "physical": {
@@ -76,13 +65,8 @@
   },
   "5": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+1",
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+1", "+2"]
     },
     "physical": {
       "electronegativity": "2.04",
@@ -97,18 +81,8 @@
   },
   "6": {
     "oxidationStates": {
-      "common": [
-        "-4",
-        "+4"
-      ],
-      "possible": [
-        "-3",
-        "-2",
-        "-1",
-        "+1",
-        "+2",
-        "+3"
-      ]
+      "common": ["-4", "+4"],
+      "possible": ["-3", "-2", "-1", "+1", "+2", "+3"]
     },
     "physical": {
       "electronegativity": "2.55",
@@ -123,16 +97,8 @@
   },
   "7": {
     "oxidationStates": {
-      "common": [
-        "-3",
-        "+3",
-        "+5"
-      ],
-      "possible": [
-        "+1",
-        "+2",
-        "+4"
-      ]
+      "common": ["-3", "+3", "+5"],
+      "possible": ["+1", "+2", "+4"]
     },
     "physical": {
       "electronegativity": "3.04",
@@ -147,15 +113,8 @@
   },
   "8": {
     "oxidationStates": {
-      "common": [
-        "-2"
-      ],
-      "possible": [
-        "-1",
-        "0",
-        "+1",
-        "+2"
-      ]
+      "common": ["-2"],
+      "possible": ["-1", "0", "+1", "+2"]
     },
     "physical": {
       "electronegativity": "3.44",
@@ -170,9 +129,7 @@
   },
   "9": {
     "oxidationStates": {
-      "common": [
-        "-1"
-      ],
+      "common": ["-1"],
       "possible": []
     },
     "physical": {
@@ -188,9 +145,7 @@
   },
   "10": {
     "oxidationStates": {
-      "common": [
-        "0"
-      ],
+      "common": ["0"],
       "possible": []
     },
     "physical": {
@@ -206,9 +161,7 @@
   },
   "11": {
     "oxidationStates": {
-      "common": [
-        "+1"
-      ],
+      "common": ["+1"],
       "possible": []
     },
     "physical": {
@@ -224,9 +177,7 @@
   },
   "12": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
+      "common": ["+2"],
       "possible": []
     },
     "physical": {
@@ -242,12 +193,8 @@
   },
   "13": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+1"
-      ]
+      "common": ["+3"],
+      "possible": ["+1"]
     },
     "physical": {
       "electronegativity": "1.61",
@@ -262,13 +209,8 @@
   },
   "14": {
     "oxidationStates": {
-      "common": [
-        "-4",
-        "+4"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["-4", "+4"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.9",
@@ -283,11 +225,7 @@
   },
   "15": {
     "oxidationStates": {
-      "common": [
-        "-3",
-        "+3",
-        "+5"
-      ],
+      "common": ["-3", "+3", "+5"],
       "possible": []
     },
     "physical": {
@@ -303,14 +241,8 @@
   },
   "16": {
     "oxidationStates": {
-      "common": [
-        "-2",
-        "+4",
-        "+6"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["-2", "+4", "+6"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "2.58",
@@ -325,15 +257,8 @@
   },
   "17": {
     "oxidationStates": {
-      "common": [
-        "-1",
-        "+1",
-        "+5",
-        "+7"
-      ],
-      "possible": [
-        "+3"
-      ]
+      "common": ["-1", "+1", "+5", "+7"],
+      "possible": ["+3"]
     },
     "physical": {
       "electronegativity": "3.16",
@@ -348,9 +273,7 @@
   },
   "18": {
     "oxidationStates": {
-      "common": [
-        "0"
-      ],
+      "common": ["0"],
       "possible": []
     },
     "physical": {
@@ -366,9 +289,7 @@
   },
   "19": {
     "oxidationStates": {
-      "common": [
-        "+1"
-      ],
+      "common": ["+1"],
       "possible": []
     },
     "physical": {
@@ -384,9 +305,7 @@
   },
   "20": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
+      "common": ["+2"],
       "possible": []
     },
     "physical": {
@@ -402,13 +321,8 @@
   },
   "21": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2",
-        "+1"
-      ]
+      "common": ["+3"],
+      "possible": ["+2", "+1"]
     },
     "physical": {
       "electronegativity": "1.36",
@@ -423,13 +337,8 @@
   },
   "22": {
     "oxidationStates": {
-      "common": [
-        "+4"
-      ],
-      "possible": [
-        "+3",
-        "+2"
-      ]
+      "common": ["+4"],
+      "possible": ["+3", "+2"]
     },
     "physical": {
       "electronegativity": "1.54",
@@ -444,14 +353,8 @@
   },
   "23": {
     "oxidationStates": {
-      "common": [
-        "+5",
-        "+4",
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+5", "+4", "+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.63",
@@ -466,16 +369,8 @@
   },
   "24": {
     "oxidationStates": {
-      "common": [
-        "+3",
-        "+6"
-      ],
-      "possible": [
-        "+1",
-        "+2",
-        "+4",
-        "+5"
-      ]
+      "common": ["+3", "+6"],
+      "possible": ["+1", "+2", "+4", "+5"]
     },
     "physical": {
       "electronegativity": "1.66",
@@ -490,17 +385,8 @@
   },
   "25": {
     "oxidationStates": {
-      "common": [
-        "+2",
-        "+4",
-        "+7"
-      ],
-      "possible": [
-        "+1",
-        "+3",
-        "+5",
-        "+6"
-      ]
+      "common": ["+2", "+4", "+7"],
+      "possible": ["+1", "+3", "+5", "+6"]
     },
     "physical": {
       "electronegativity": "1.55",
@@ -515,13 +401,8 @@
   },
   "26": {
     "oxidationStates": {
-      "common": [
-        "+2",
-        "+3"
-      ],
-      "possible": [
-        "+6"
-      ]
+      "common": ["+2", "+3"],
+      "possible": ["+6"]
     },
     "physical": {
       "electronegativity": "1.83",
@@ -536,14 +417,8 @@
   },
   "27": {
     "oxidationStates": {
-      "common": [
-        "+2",
-        "+3"
-      ],
-      "possible": [
-        "+1",
-        "+4"
-      ]
+      "common": ["+2", "+3"],
+      "possible": ["+1", "+4"]
     },
     "physical": {
       "electronegativity": "1.88",
@@ -558,13 +433,8 @@
   },
   "28": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
-      "possible": [
-        "+1",
-        "+3"
-      ]
+      "common": ["+2"],
+      "possible": ["+1", "+3"]
     },
     "physical": {
       "electronegativity": "1.91",
@@ -579,13 +449,8 @@
   },
   "29": {
     "oxidationStates": {
-      "common": [
-        "+1",
-        "+2"
-      ],
-      "possible": [
-        "+3"
-      ]
+      "common": ["+1", "+2"],
+      "possible": ["+3"]
     },
     "physical": {
       "electronegativity": "1.9",
@@ -600,12 +465,8 @@
   },
   "30": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
-      "possible": [
-        "+1"
-      ]
+      "common": ["+2"],
+      "possible": ["+1"]
     },
     "physical": {
       "electronegativity": "1.65",
@@ -620,13 +481,8 @@
   },
   "31": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+1",
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+1", "+2"]
     },
     "physical": {
       "electronegativity": "1.81",
@@ -641,13 +497,8 @@
   },
   "32": {
     "oxidationStates": {
-      "common": [
-        "+4",
-        "+2"
-      ],
-      "possible": [
-        "-4"
-      ]
+      "common": ["+4", "+2"],
+      "possible": ["-4"]
     },
     "physical": {
       "electronegativity": "2.01",
@@ -662,14 +513,8 @@
   },
   "33": {
     "oxidationStates": {
-      "common": [
-        "-3",
-        "+3",
-        "+5"
-      ],
-      "possible": [
-        "+1"
-      ]
+      "common": ["-3", "+3", "+5"],
+      "possible": ["+1"]
     },
     "physical": {
       "electronegativity": "2.18",
@@ -684,14 +529,8 @@
   },
   "34": {
     "oxidationStates": {
-      "common": [
-        "-2",
-        "+4",
-        "+6"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["-2", "+4", "+6"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "2.55",
@@ -706,15 +545,8 @@
   },
   "35": {
     "oxidationStates": {
-      "common": [
-        "-1",
-        "+1",
-        "+5",
-        "+7"
-      ],
-      "possible": [
-        "+3"
-      ]
+      "common": ["-1", "+1", "+5", "+7"],
+      "possible": ["+3"]
     },
     "physical": {
       "electronegativity": "2.96",
@@ -729,12 +561,8 @@
   },
   "36": {
     "oxidationStates": {
-      "common": [
-        "0"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["0"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "3",
@@ -749,9 +577,7 @@
   },
   "37": {
     "oxidationStates": {
-      "common": [
-        "+1"
-      ],
+      "common": ["+1"],
       "possible": []
     },
     "physical": {
@@ -767,9 +593,7 @@
   },
   "38": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
+      "common": ["+2"],
       "possible": []
     },
     "physical": {
@@ -785,13 +609,8 @@
   },
   "39": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2",
-        "+1"
-      ]
+      "common": ["+3"],
+      "possible": ["+2", "+1"]
     },
     "physical": {
       "electronegativity": "1.22",
@@ -806,13 +625,8 @@
   },
   "40": {
     "oxidationStates": {
-      "common": [
-        "+4"
-      ],
-      "possible": [
-        "+3",
-        "+2"
-      ]
+      "common": ["+4"],
+      "possible": ["+3", "+2"]
     },
     "physical": {
       "electronegativity": "1.33",
@@ -827,14 +641,8 @@
   },
   "41": {
     "oxidationStates": {
-      "common": [
-        "+5"
-      ],
-      "possible": [
-        "+4",
-        "+3",
-        "+2"
-      ]
+      "common": ["+5"],
+      "possible": ["+4", "+3", "+2"]
     },
     "physical": {
       "electronegativity": "1.6",
@@ -849,15 +657,8 @@
   },
   "42": {
     "oxidationStates": {
-      "common": [
-        "+6"
-      ],
-      "possible": [
-        "+4",
-        "+5",
-        "+3",
-        "+2"
-      ]
+      "common": ["+6"],
+      "possible": ["+4", "+5", "+3", "+2"]
     },
     "physical": {
       "electronegativity": "2.16",
@@ -872,14 +673,8 @@
   },
   "43": {
     "oxidationStates": {
-      "common": [
-        "+7"
-      ],
-      "possible": [
-        "+4",
-        "+6",
-        "+5"
-      ]
+      "common": ["+7"],
+      "possible": ["+4", "+6", "+5"]
     },
     "physical": {
       "electronegativity": "1.9",
@@ -894,16 +689,8 @@
   },
   "44": {
     "oxidationStates": {
-      "common": [
-        "+3",
-        "+4"
-      ],
-      "possible": [
-        "+2",
-        "+6",
-        "+7",
-        "+8"
-      ]
+      "common": ["+3", "+4"],
+      "possible": ["+2", "+6", "+7", "+8"]
     },
     "physical": {
       "electronegativity": "2.2",
@@ -918,15 +705,8 @@
   },
   "45": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+1",
-        "+2",
-        "+4",
-        "+5"
-      ]
+      "common": ["+3"],
+      "possible": ["+1", "+2", "+4", "+5"]
     },
     "physical": {
       "electronegativity": "2.28",
@@ -941,15 +721,8 @@
   },
   "46": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
-      "possible": [
-        "0",
-        "+1",
-        "+3",
-        "+4"
-      ]
+      "common": ["+2"],
+      "possible": ["0", "+1", "+3", "+4"]
     },
     "physical": {
       "electronegativity": "2.2",
@@ -964,13 +737,8 @@
   },
   "47": {
     "oxidationStates": {
-      "common": [
-        "+1"
-      ],
-      "possible": [
-        "+2",
-        "+3"
-      ]
+      "common": ["+1"],
+      "possible": ["+2", "+3"]
     },
     "physical": {
       "electronegativity": "1.93",
@@ -985,12 +753,8 @@
   },
   "48": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
-      "possible": [
-        "+1"
-      ]
+      "common": ["+2"],
+      "possible": ["+1"]
     },
     "physical": {
       "electronegativity": "1.69",
@@ -1005,13 +769,8 @@
   },
   "49": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+1",
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+1", "+2"]
     },
     "physical": {
       "electronegativity": "1.78",
@@ -1026,13 +785,8 @@
   },
   "50": {
     "oxidationStates": {
-      "common": [
-        "+2",
-        "+4"
-      ],
-      "possible": [
-        "-4"
-      ]
+      "common": ["+2", "+4"],
+      "possible": ["-4"]
     },
     "physical": {
       "electronegativity": "1.96",
@@ -1047,14 +801,8 @@
   },
   "51": {
     "oxidationStates": {
-      "common": [
-        "-3",
-        "+3",
-        "+5"
-      ],
-      "possible": [
-        "+1"
-      ]
+      "common": ["-3", "+3", "+5"],
+      "possible": ["+1"]
     },
     "physical": {
       "electronegativity": "2.05",
@@ -1069,14 +817,8 @@
   },
   "52": {
     "oxidationStates": {
-      "common": [
-        "-2",
-        "+4",
-        "+6"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["-2", "+4", "+6"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "2.1",
@@ -1091,15 +833,8 @@
   },
   "53": {
     "oxidationStates": {
-      "common": [
-        "-1",
-        "+1",
-        "+5",
-        "+7"
-      ],
-      "possible": [
-        "+3"
-      ]
+      "common": ["-1", "+1", "+5", "+7"],
+      "possible": ["+3"]
     },
     "physical": {
       "electronegativity": "2.66",
@@ -1114,15 +849,8 @@
   },
   "54": {
     "oxidationStates": {
-      "common": [
-        "0"
-      ],
-      "possible": [
-        "+2",
-        "+4",
-        "+6",
-        "+8"
-      ]
+      "common": ["0"],
+      "possible": ["+2", "+4", "+6", "+8"]
     },
     "physical": {
       "electronegativity": "2.6",
@@ -1137,9 +865,7 @@
   },
   "55": {
     "oxidationStates": {
-      "common": [
-        "+1"
-      ],
+      "common": ["+1"],
       "possible": []
     },
     "physical": {
@@ -1155,9 +881,7 @@
   },
   "56": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
+      "common": ["+2"],
       "possible": []
     },
     "physical": {
@@ -1173,12 +897,8 @@
   },
   "57": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.1",
@@ -1193,13 +913,8 @@
   },
   "58": {
     "oxidationStates": {
-      "common": [
-        "+3",
-        "+4"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3", "+4"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.12",
@@ -1214,13 +929,8 @@
   },
   "59": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+4",
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+4", "+2"]
     },
     "physical": {
       "electronegativity": "1.13",
@@ -1235,12 +945,8 @@
   },
   "60": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.14",
@@ -1255,12 +961,8 @@
   },
   "61": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.13",
@@ -1275,12 +977,8 @@
   },
   "62": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.17",
@@ -1295,10 +993,7 @@
   },
   "63": {
     "oxidationStates": {
-      "common": [
-        "+2",
-        "+3"
-      ],
+      "common": ["+2", "+3"],
       "possible": []
     },
     "physical": {
@@ -1314,12 +1009,8 @@
   },
   "64": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.2",
@@ -1334,13 +1025,8 @@
   },
   "65": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+4",
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+4", "+2"]
     },
     "physical": {
       "electronegativity": "1.1",
@@ -1355,12 +1041,8 @@
   },
   "66": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.22",
@@ -1375,12 +1057,8 @@
   },
   "67": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.23",
@@ -1395,12 +1073,8 @@
   },
   "68": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.24",
@@ -1415,12 +1089,8 @@
   },
   "69": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.25",
@@ -1435,10 +1105,7 @@
   },
   "70": {
     "oxidationStates": {
-      "common": [
-        "+2",
-        "+3"
-      ],
+      "common": ["+2", "+3"],
       "possible": []
     },
     "physical": {
@@ -1454,12 +1121,8 @@
   },
   "71": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.27",
@@ -1474,13 +1137,8 @@
   },
   "72": {
     "oxidationStates": {
-      "common": [
-        "+4"
-      ],
-      "possible": [
-        "+3",
-        "+2"
-      ]
+      "common": ["+4"],
+      "possible": ["+3", "+2"]
     },
     "physical": {
       "electronegativity": "1.3",
@@ -1495,14 +1153,8 @@
   },
   "73": {
     "oxidationStates": {
-      "common": [
-        "+5"
-      ],
-      "possible": [
-        "+4",
-        "+3",
-        "+2"
-      ]
+      "common": ["+5"],
+      "possible": ["+4", "+3", "+2"]
     },
     "physical": {
       "electronegativity": "1.5",
@@ -1517,15 +1169,8 @@
   },
   "74": {
     "oxidationStates": {
-      "common": [
-        "+6"
-      ],
-      "possible": [
-        "+5",
-        "+4",
-        "+3",
-        "+2"
-      ]
+      "common": ["+6"],
+      "possible": ["+5", "+4", "+3", "+2"]
     },
     "physical": {
       "electronegativity": "2.36",
@@ -1540,16 +1185,8 @@
   },
   "75": {
     "oxidationStates": {
-      "common": [
-        "+7"
-      ],
-      "possible": [
-        "+6",
-        "+5",
-        "+4",
-        "+3",
-        "+2"
-      ]
+      "common": ["+7"],
+      "possible": ["+6", "+5", "+4", "+3", "+2"]
     },
     "physical": {
       "electronegativity": "1.9",
@@ -1564,16 +1201,8 @@
   },
   "76": {
     "oxidationStates": {
-      "common": [
-        "+4",
-        "+8"
-      ],
-      "possible": [
-        "+2",
-        "+3",
-        "+6",
-        "+7"
-      ]
+      "common": ["+4", "+8"],
+      "possible": ["+2", "+3", "+6", "+7"]
     },
     "physical": {
       "electronegativity": "2.2",
@@ -1588,16 +1217,8 @@
   },
   "77": {
     "oxidationStates": {
-      "common": [
-        "+3",
-        "+4"
-      ],
-      "possible": [
-        "+1",
-        "+2",
-        "+5",
-        "+6"
-      ]
+      "common": ["+3", "+4"],
+      "possible": ["+1", "+2", "+5", "+6"]
     },
     "physical": {
       "electronegativity": "2.2",
@@ -1612,16 +1233,8 @@
   },
   "78": {
     "oxidationStates": {
-      "common": [
-        "+2",
-        "+4"
-      ],
-      "possible": [
-        "0",
-        "+1",
-        "+3",
-        "+6"
-      ]
+      "common": ["+2", "+4"],
+      "possible": ["0", "+1", "+3", "+6"]
     },
     "physical": {
       "electronegativity": "2.28",
@@ -1636,14 +1249,8 @@
   },
   "79": {
     "oxidationStates": {
-      "common": [
-        "+1",
-        "+3"
-      ],
-      "possible": [
-        "+2",
-        "+5"
-      ]
+      "common": ["+1", "+3"],
+      "possible": ["+2", "+5"]
     },
     "physical": {
       "electronegativity": "2.54",
@@ -1658,10 +1265,7 @@
   },
   "80": {
     "oxidationStates": {
-      "common": [
-        "+1",
-        "+2"
-      ],
+      "common": ["+1", "+2"],
       "possible": []
     },
     "physical": {
@@ -1677,10 +1281,7 @@
   },
   "81": {
     "oxidationStates": {
-      "common": [
-        "+1",
-        "+3"
-      ],
+      "common": ["+1", "+3"],
       "possible": []
     },
     "physical": {
@@ -1696,10 +1297,7 @@
   },
   "82": {
     "oxidationStates": {
-      "common": [
-        "+2",
-        "+4"
-      ],
+      "common": ["+2", "+4"],
       "possible": []
     },
     "physical": {
@@ -1715,10 +1313,7 @@
   },
   "83": {
     "oxidationStates": {
-      "common": [
-        "+3",
-        "+5"
-      ],
+      "common": ["+3", "+5"],
       "possible": []
     },
     "physical": {
@@ -1734,14 +1329,8 @@
   },
   "84": {
     "oxidationStates": {
-      "common": [
-        "-2",
-        "+4"
-      ],
-      "possible": [
-        "+2",
-        "+6"
-      ]
+      "common": ["-2", "+4"],
+      "possible": ["+2", "+6"]
     },
     "physical": {
       "electronegativity": "2",
@@ -1756,15 +1345,8 @@
   },
   "85": {
     "oxidationStates": {
-      "common": [
-        "-1"
-      ],
-      "possible": [
-        "+1",
-        "+3",
-        "+5",
-        "+7"
-      ]
+      "common": ["-1"],
+      "possible": ["+1", "+3", "+5", "+7"]
     },
     "physical": {
       "electronegativity": "2.2",
@@ -1779,12 +1361,8 @@
   },
   "86": {
     "oxidationStates": {
-      "common": [
-        "0"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["0"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -1799,9 +1377,7 @@
   },
   "87": {
     "oxidationStates": {
-      "common": [
-        "+1"
-      ],
+      "common": ["+1"],
       "possible": []
     },
     "physical": {
@@ -1817,9 +1393,7 @@
   },
   "88": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
+      "common": ["+2"],
       "possible": []
     },
     "physical": {
@@ -1835,9 +1409,7 @@
   },
   "89": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
+      "common": ["+3"],
       "possible": []
     },
     "physical": {
@@ -1853,12 +1425,8 @@
   },
   "90": {
     "oxidationStates": {
-      "common": [
-        "+4"
-      ],
-      "possible": [
-        "+3"
-      ]
+      "common": ["+4"],
+      "possible": ["+3"]
     },
     "physical": {
       "electronegativity": "1.3",
@@ -1873,13 +1441,8 @@
   },
   "91": {
     "oxidationStates": {
-      "common": [
-        "+5"
-      ],
-      "possible": [
-        "+4",
-        "+3"
-      ]
+      "common": ["+5"],
+      "possible": ["+4", "+3"]
     },
     "physical": {
       "electronegativity": "1.5",
@@ -1894,14 +1457,8 @@
   },
   "92": {
     "oxidationStates": {
-      "common": [
-        "+6",
-        "+4"
-      ],
-      "possible": [
-        "+5",
-        "+3"
-      ]
+      "common": ["+6", "+4"],
+      "possible": ["+5", "+3"]
     },
     "physical": {
       "electronegativity": "1.38",
@@ -1916,15 +1473,8 @@
   },
   "93": {
     "oxidationStates": {
-      "common": [
-        "+5"
-      ],
-      "possible": [
-        "+3",
-        "+4",
-        "+6",
-        "+7"
-      ]
+      "common": ["+5"],
+      "possible": ["+3", "+4", "+6", "+7"]
     },
     "physical": {
       "electronegativity": "1.36",
@@ -1939,15 +1489,8 @@
   },
   "94": {
     "oxidationStates": {
-      "common": [
-        "+4"
-      ],
-      "possible": [
-        "+3",
-        "+5",
-        "+6",
-        "+7"
-      ]
+      "common": ["+4"],
+      "possible": ["+3", "+5", "+6", "+7"]
     },
     "physical": {
       "electronegativity": "1.28",
@@ -1962,15 +1505,8 @@
   },
   "95": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2",
-        "+4",
-        "+5",
-        "+6"
-      ]
+      "common": ["+3"],
+      "possible": ["+2", "+4", "+5", "+6"]
     },
     "physical": {
       "electronegativity": "1.13",
@@ -1985,13 +1521,8 @@
   },
   "96": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2",
-        "+4"
-      ]
+      "common": ["+3"],
+      "possible": ["+2", "+4"]
     },
     "physical": {
       "electronegativity": "1.28",
@@ -2006,13 +1537,8 @@
   },
   "97": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2",
-        "+4"
-      ]
+      "common": ["+3"],
+      "possible": ["+2", "+4"]
     },
     "physical": {
       "electronegativity": "1.3",
@@ -2027,13 +1553,8 @@
   },
   "98": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2",
-        "+4"
-      ]
+      "common": ["+3"],
+      "possible": ["+2", "+4"]
     },
     "physical": {
       "electronegativity": "1.3",
@@ -2048,12 +1569,8 @@
   },
   "99": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.3",
@@ -2068,12 +1585,8 @@
   },
   "100": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.3",
@@ -2088,12 +1601,8 @@
   },
   "101": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["+3"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "1.3",
@@ -2108,12 +1617,8 @@
   },
   "102": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
-      "possible": [
-        "+3"
-      ]
+      "common": ["+2"],
+      "possible": ["+3"]
     },
     "physical": {
       "electronegativity": "1.3",
@@ -2128,9 +1633,7 @@
   },
   "103": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
+      "common": ["+3"],
       "possible": []
     },
     "physical": {
@@ -2146,13 +1649,8 @@
   },
   "104": {
     "oxidationStates": {
-      "common": [
-        "+4"
-      ],
-      "possible": [
-        "+3",
-        "+2"
-      ]
+      "common": ["+4"],
+      "possible": ["+3", "+2"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2167,13 +1665,8 @@
   },
   "105": {
     "oxidationStates": {
-      "common": [
-        "+5"
-      ],
-      "possible": [
-        "+4",
-        "+3"
-      ]
+      "common": ["+5"],
+      "possible": ["+4", "+3"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2188,13 +1681,8 @@
   },
   "106": {
     "oxidationStates": {
-      "common": [
-        "+6"
-      ],
-      "possible": [
-        "+5",
-        "+4"
-      ]
+      "common": ["+6"],
+      "possible": ["+5", "+4"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2209,14 +1697,8 @@
   },
   "107": {
     "oxidationStates": {
-      "common": [
-        "+7"
-      ],
-      "possible": [
-        "+5",
-        "+4",
-        "+3"
-      ]
+      "common": ["+7"],
+      "possible": ["+5", "+4", "+3"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2231,14 +1713,8 @@
   },
   "108": {
     "oxidationStates": {
-      "common": [
-        "+8"
-      ],
-      "possible": [
-        "+6",
-        "+4",
-        "+2"
-      ]
+      "common": ["+8"],
+      "possible": ["+6", "+4", "+2"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2253,14 +1729,8 @@
   },
   "109": {
     "oxidationStates": {
-      "common": [
-        "+3"
-      ],
-      "possible": [
-        "+2",
-        "+4",
-        "+6"
-      ]
+      "common": ["+3"],
+      "possible": ["+2", "+4", "+6"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2275,12 +1745,8 @@
   },
   "110": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
-      "possible": [
-        "+4"
-      ]
+      "common": ["+2"],
+      "possible": ["+4"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2295,12 +1761,8 @@
   },
   "111": {
     "oxidationStates": {
-      "common": [
-        "+1"
-      ],
-      "possible": [
-        "+3"
-      ]
+      "common": ["+1"],
+      "possible": ["+3"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2315,13 +1777,8 @@
   },
   "112": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
-      "possible": [
-        "+1",
-        "+4"
-      ]
+      "common": ["+2"],
+      "possible": ["+1", "+4"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2336,12 +1793,8 @@
   },
   "113": {
     "oxidationStates": {
-      "common": [
-        "+1"
-      ],
-      "possible": [
-        "+3"
-      ]
+      "common": ["+1"],
+      "possible": ["+3"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2356,12 +1809,8 @@
   },
   "114": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
-      "possible": [
-        "+4"
-      ]
+      "common": ["+2"],
+      "possible": ["+4"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2376,13 +1825,8 @@
   },
   "115": {
     "oxidationStates": {
-      "common": [
-        "+1"
-      ],
-      "possible": [
-        "+3",
-        "+5"
-      ]
+      "common": ["+1"],
+      "possible": ["+3", "+5"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2397,13 +1841,8 @@
   },
   "116": {
     "oxidationStates": {
-      "common": [
-        "+2"
-      ],
-      "possible": [
-        "+4",
-        "+6"
-      ]
+      "common": ["+2"],
+      "possible": ["+4", "+6"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2418,15 +1857,8 @@
   },
   "117": {
     "oxidationStates": {
-      "common": [
-        "-1"
-      ],
-      "possible": [
-        "+1",
-        "+3",
-        "+5",
-        "+7"
-      ]
+      "common": ["-1"],
+      "possible": ["+1", "+3", "+5", "+7"]
     },
     "physical": {
       "electronegativity": "N/A",
@@ -2441,12 +1873,8 @@
   },
   "118": {
     "oxidationStates": {
-      "common": [
-        "0"
-      ],
-      "possible": [
-        "+2"
-      ]
+      "common": ["0"],
+      "possible": ["+2"]
     },
     "physical": {
       "electronegativity": "N/A",
