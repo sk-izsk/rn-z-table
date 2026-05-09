@@ -6,7 +6,7 @@ import { useAppPalette } from '@/hooks/store/useAppPalette'
 import { useAppTranslation } from '@/i18n/localize'
 import type { ElementIsotope } from '@/types/elementProfile'
 import { SHELL_NAMES } from '@/utils/atomModel'
-import { Pressable, Text, View } from 'react-native'
+import { Pressable, Text, View, useWindowDimensions } from 'react-native'
 
 type AtomPanelShellProps = {
   element: Element
@@ -74,8 +74,10 @@ export const AtomPanelShell = ({
 }: AtomPanelShellProps) => {
   const { t } = useAppTranslation()
   const { colors } = useAppPalette()
+  const { height } = useWindowDimensions()
   const neutronCount = isotope?.neutronCount ?? Math.max(0, Math.round(element.mass) - element.n)
   const shells = useAtomShells(element)
+  const stageHeight = height < 900 ? 316 : 360
 
   return (
     <View
@@ -86,37 +88,33 @@ export const AtomPanelShell = ({
       className="overflow-hidden rounded-[30px] border shadow-panel"
     >
       <View style={{ borderBottomColor: colors.line }} className="border-b px-4 py-3">
-        <View className="flex-row items-center justify-between">
-          <View className="flex-row gap-2">
-            <View
-              style={{
-                borderColor: colors.line,
-                backgroundColor: colors.surface,
-              }}
-              className="rounded-full border px-3 py-1.5"
-            >
-              <Text style={{ color: colors.textMuted }} className="font-mono text-[13px]">
-                {element.config}
-              </Text>
-            </View>
-            <View
-              style={{
-                borderColor: colors.line,
-                backgroundColor: colors.surface,
-              }}
-              className="rounded-full border px-3 py-1.5"
-            >
-              <Text style={{ color: colors.textMuted }} className="font-mono text-[13px]">
-                {isotope?.name ?? `${element.sym}-${Math.round(element.mass)}`}
-              </Text>
-            </View>
-          </View>
-          <Text
-            style={{ color: colors.textMuted }}
-            className="text-[12px] font-semibold uppercase tracking-[3px]"
+        <View className="flex-row items-center justify-between gap-3">
+          <View
+            style={{
+              borderColor: colors.line,
+              backgroundColor: colors.surface,
+            }}
+            className="min-w-0 flex-1 rounded-full border px-3 py-1.5"
           >
-            {t('atom.shellModel')}
-          </Text>
+            <Text
+              numberOfLines={1}
+              style={{ color: colors.textMuted }}
+              className="font-mono text-[13px]"
+            >
+              {element.config}
+            </Text>
+          </View>
+          <View
+            style={{
+              borderColor: colors.line,
+              backgroundColor: colors.surface,
+            }}
+            className="rounded-full border px-3 py-1.5"
+          >
+            <Text style={{ color: colors.textMuted }} className="font-mono text-[13px]">
+              {isotope?.name ?? `${element.sym}-${Math.round(element.mass)}`}
+            </Text>
+          </View>
         </View>
       </View>
 
@@ -127,10 +125,11 @@ export const AtomPanelShell = ({
           paused={paused}
           speed={speed}
           topView={topView}
+          stageHeight={stageHeight}
         />
       </View>
 
-      <View style={{ borderTopColor: colors.line }} className="border-t px-5 py-4">
+      <View style={{ borderTopColor: colors.line }} className="border-t px-5 pt-4 pb-10">
         <View className="mb-4 flex-row items-center justify-between">
           <View>
             <Text

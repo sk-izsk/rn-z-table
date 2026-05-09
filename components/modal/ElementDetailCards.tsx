@@ -138,7 +138,7 @@ export const ElementDetailCards = ({
   const [viewportWidth, setViewportWidth] = useState(0)
   const pageWidth = viewportWidth || 320
   const cardWidth = Math.max(280, pageWidth - 18)
-  const cardHeight = Math.max(360, Math.min(height * 0.5, 500))
+  const cardHeight = Math.max(320, Math.min(height * 0.42, 430))
   const pagerRef = useRef<ScrollView | null>(null)
 
   const handleLayout = (event: LayoutChangeEvent) => {
