@@ -1,24 +1,34 @@
 import { AppHeader } from '@/components/nav/AppHeader'
+import { EquationBalancerTool } from '@/components/tools/EquationBalancerTool'
+import { MolarMassTool } from '@/components/tools/MolarMassTool'
+import { SolubilityTool } from '@/components/tools/SolubilityTool'
 import { PageIntro } from '@/components/ui/PageIntro'
-import { Panel } from '@/components/ui/Panel'
 import { Screen } from '@/components/ui/Screen'
-import { Text } from 'react-native'
+import { useAppTranslation } from '@/i18n/localize'
+import { SOLUBILITY_ANIONS, SOLUBILITY_CATIONS } from '@/data/tools/solubility'
+import { useState } from 'react'
 
 export default function ToolsRoute() {
+  const { t } = useAppTranslation()
+  const [cation, setCation] = useState<(typeof SOLUBILITY_CATIONS)[number]>('Li⁺')
+  const [anion, setAnion] = useState<(typeof SOLUBILITY_ANIONS)[number]>('Cl⁻')
+
   return (
     <Screen>
       <AppHeader />
       <PageIntro
-        eyebrow="Lab Console"
-        title="Chemistry Tools"
-        description="Molar mass, equation balancing, and solubility lookup land in next implementation phase."
+        eyebrow={t('tools.eyebrow')}
+        title={t('tools.screenTitle')}
+        description={t('tools.screenDescription')}
       />
-      <Panel>
-        <Text className="text-[16px] leading-6 text-slate-600">
-          Logic modules already exist in `utils/`. UI still needs native adapters and async compute
-          boundary for balancer.
-        </Text>
-      </Panel>
+      <MolarMassTool />
+      <EquationBalancerTool />
+      <SolubilityTool
+        cation={cation}
+        anion={anion}
+        onSelectCation={setCation}
+        onSelectAnion={setAnion}
+      />
     </Screen>
   )
 }

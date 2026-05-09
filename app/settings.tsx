@@ -1,41 +1,119 @@
 import { AppHeader } from '@/components/nav/AppHeader'
 import { PageIntro } from '@/components/ui/PageIntro'
-import { Panel } from '@/components/ui/Panel'
 import { Screen } from '@/components/ui/Screen'
-import { useAnimationSpeed, useAnimationsPaused } from '@/hooks/store/useAnimationStore'
-import { useLanguage } from '@/hooks/store/useLanguageStore'
-import { useMassUnit } from '@/hooks/store/useSettingsStore'
-import { useThemeMode } from '@/hooks/store/useThemeStore'
-import { Text, View } from 'react-native'
+import { SegmentedControl } from '@/components/ui/SegmentedControl'
+import { SettingsSection } from '@/components/ui/SettingsSection'
+import {
+  useAnimationSpeed,
+  useAnimationsPaused,
+  useSetAnimationSpeed,
+  useSetAnimationsPaused,
+} from '@/hooks/store/useAnimationStore'
+import { useLanguage, useSetLanguage } from '@/hooks/store/useLanguageStore'
+import { useMassUnit, useSetMassUnit } from '@/hooks/store/useSettingsStore'
+import { useSetThemeMode, useThemeMode } from '@/hooks/store/useThemeStore'
+import { useAppTranslation } from '@/i18n/localize'
+import type { AppLanguage } from '@/i18n/types'
+import type { MassUnit } from '@/stores/massUnitStore'
+import type { ThemeMode } from '@/stores/themeStore'
+import { Pressable, Switch, Text, View } from 'react-native'
 
 export default function SettingsRoute() {
+  const { t } = useAppTranslation()
   const language = useLanguage()
+  const setLanguage = useSetLanguage()
   const themeMode = useThemeMode()
+  const setThemeMode = useSetThemeMode()
   const massUnit = useMassUnit()
+  const setMassUnit = useSetMassUnit()
   const animationSpeed = useAnimationSpeed()
+  const setAnimationSpeed = useSetAnimationSpeed()
   const animationsPaused = useAnimationsPaused()
+  const setAnimationsPaused = useSetAnimationsPaused()
 
   return (
     <Screen>
       <AppHeader />
       <PageIntro
-        eyebrow="Console Setup"
-        title="Settings"
-        description="Persisted settings stores now use AsyncStorage and are ready for native controls."
+        eyebrow={t('settings.eyebrow')}
+        title={t('settings.title')}
+        description={t('settings.subtitle')}
       />
-      <Panel>
-        <View className="gap-3">
-          <Text className="text-sm text-slate-500">Language: {language}</Text>
-          <Text className="text-sm text-slate-500">Theme: {themeMode}</Text>
-          <Text className="text-sm text-slate-500">Mass unit: {massUnit}</Text>
-          <Text className="text-sm text-slate-500">
-            Animation speed: {animationSpeed.toFixed(2)}x
-          </Text>
-          <Text className="text-sm text-slate-500">
-            Animations paused: {animationsPaused ? 'yes' : 'no'}
-          </Text>
+      <SettingsSection
+        title={t('settings.language')}
+        description={t('settings.languageDescription')}
+      >
+        <SegmentedControl<AppLanguage>
+          value={language}
+          onValueChange={(value) => {
+            void setLanguage(value)
+          }}
+          options={[
+            { value: 'en', label: 'English' },
+            { value: 'fr', label: 'Francais' },
+          ]}
+        />
+      </SettingsSection>
+
+      <SettingsSection title={t('settings.theme')} description={t('settings.themeDescription')}>
+        <SegmentedControl<ThemeMode>
+          value={themeMode}
+          onValueChange={setThemeMode}
+          options={[
+            { value: 'system', label: t('settings.system') },
+            { value: 'light', label: t('common.light') },
+            { value: 'dark', label: t('common.dark') },
+          ]}
+        />
+      </SettingsSection>
+
+      <SettingsSection
+        title={t('settings.globalUnit')}
+        description={t('settings.massUnitDescription')}
+      >
+        <SegmentedControl<MassUnit>
+          value={massUnit}
+          onValueChange={setMassUnit}
+          options={[
+            { value: 'highSchool', label: t('settings.massUnitHighSchool') },
+            { value: 'universityConventional', label: t('settings.massUnitUniversity') },
+          ]}
+        />
+      </SettingsSection>
+
+      <SettingsSection
+        title={t('settings.animationTitle')}
+        description={t('settings.animationDescription')}
+      >
+        <View className="gap-4">
+          <View className="flex-row items-center justify-between rounded-[18px] border border-[#d9e6ee] bg-[#f6fbfd] px-4 py-3">
+            <Text className="text-[16px] font-semibold text-ink">
+              {t('settings.animationSpeed')}: {animationSpeed.toFixed(2)}x
+            </Text>
+            <View className="flex-row gap-2">
+              <Pressable
+                className="rounded-full border border-[#cfe0ea] bg-white px-3 py-2"
+                onPress={() => setAnimationSpeed(animationSpeed - 0.1)}
+              >
+                <Text className="font-semibold text-slate-600">-</Text>
+              </Pressable>
+              <Pressable
+                className="rounded-full border border-[#cfe0ea] bg-white px-3 py-2"
+                onPress={() => setAnimationSpeed(animationSpeed + 0.1)}
+              >
+                <Text className="font-semibold text-slate-600">+</Text>
+              </Pressable>
+            </View>
+          </View>
+
+          <View className="flex-row items-center justify-between rounded-[18px] border border-[#d9e6ee] bg-[#f6fbfd] px-4 py-3">
+            <Text className="text-[16px] font-semibold text-ink">
+              {t('settings.pauseAnimations')}
+            </Text>
+            <Switch value={animationsPaused} onValueChange={setAnimationsPaused} />
+          </View>
         </View>
-      </Panel>
+      </SettingsSection>
     </Screen>
   )
 }

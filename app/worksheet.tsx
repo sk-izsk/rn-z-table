@@ -1,24 +1,21 @@
 import { AppHeader } from '@/components/nav/AppHeader'
+import { WorksheetBuilder } from '@/components/tools/WorksheetBuilder'
 import { PageIntro } from '@/components/ui/PageIntro'
-import { Panel } from '@/components/ui/Panel'
 import { Screen } from '@/components/ui/Screen'
-import { Text } from 'react-native'
+import { useAppTranslation } from '@/i18n/localize'
 
 export default function WorksheetRoute() {
+  const { t } = useAppTranslation()
+
   return (
     <Screen>
       <AppHeader />
       <PageIntro
-        eyebrow="Print Lab"
-        title="Worksheet Generator"
-        description="Native flow will generate equations, package answer key, then export through share/save actions."
+        eyebrow={t('worksheet.eyebrow')}
+        title={t('worksheet.title')}
+        description={t('worksheet.description')}
       />
-      <Panel>
-        <Text className="text-[16px] leading-6 text-slate-600">
-          Browser-only PDF path stays out. Native export service comes later behind worksheet screen
-          boundary.
-        </Text>
-      </Panel>
+      <WorksheetBuilder />
     </Screen>
   )
 }
