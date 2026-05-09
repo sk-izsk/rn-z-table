@@ -2,6 +2,7 @@ import { DetailPager } from '@/components/modal/DetailPager'
 import { Panel } from '@/components/ui/Panel'
 import { ScrollHint } from '@/components/ui/ScrollHint'
 import { useScrollHint } from '@/hooks/useScrollHint'
+import { useAppTranslation } from '@/i18n/localize'
 import type { ElementIsotope, ElementProfile } from '@/types/elementProfile'
 import { getMassValue, toSuperscript } from '@/utils/elementModalUtils'
 import { useRef } from 'react'
@@ -65,6 +66,7 @@ export const ElementDetailCards = ({
   onPrev,
   onNext,
 }: ElementDetailCardsProps) => {
+  const { t } = useAppTranslation()
   const { width } = useWindowDimensions()
   const cardWidth = Math.max(280, width - 36)
   const pagerRef = useRef<ScrollView | null>(null)
@@ -87,25 +89,29 @@ export const ElementDetailCards = ({
           const nextIndex = Math.round(event.nativeEvent.contentOffset.x / cardWidth)
           onCardChange(nextIndex)
         }}
+        contentContainerStyle={{ paddingBottom: 2 }}
       >
         <View style={{ width: cardWidth }} className="pr-3">
           <Panel className="mb-0 min-h-[420px]">
-            <CardSection label="Type" value={profile.level1.type} />
-            <CardSection label="Group / Period" value={profile.level1.groupPeriod} />
-            <CardSection label="Phase @ STP" value={profile.level1.phaseAtSTP} />
-            <CardSection label="Electron Block" value={profile.level1.electronBlock} />
-            <CardSection label="Common Ions" value={profile.level1.commonIons} />
+            <CardSection label={t('modal.type')} value={profile.level1.type} />
+            <CardSection label={t('modal.groupPeriod')} value={profile.level1.groupPeriod} />
+            <CardSection label={t('modal.phaseAtSTP')} value={profile.level1.phaseAtSTP} />
+            <CardSection label={t('modal.electronBlock')} value={profile.level1.electronBlock} />
+            <CardSection label={t('modal.commonIons')} value={profile.level1.commonIons} />
           </Panel>
         </View>
 
         <View style={{ width: cardWidth }} className="pr-3">
           <Panel className="mb-0 min-h-[420px]">
-            <CardSection label="Avg Atomic Mass" value={getMassValue(profile, massUnit)} />
-            <CardSection label="Protons" value={String(profile.level2.protons)} />
-            <CardSection label="Electrons" value={String(profile.level2.electronsNeutral)} />
+            <CardSection label={t('modal.avgAtomicMass')} value={getMassValue(profile, massUnit)} />
+            <CardSection label={t('modal.protons')} value={String(profile.level2.protons)} />
+            <CardSection
+              label={t('modal.electrons')}
+              value={String(profile.level2.electronsNeutral)}
+            />
             <View className="pt-3">
               <Text className="text-[11px] font-bold uppercase tracking-[3px] text-slate-400">
-                Isotopes
+                {t('modal.isotopes')}
               </Text>
               <View className="mt-3">
                 {profile.level2.isotopes.map((isotope) => (
@@ -124,14 +130,26 @@ export const ElementDetailCards = ({
 
         <View style={{ width: cardWidth }} className="pr-3">
           <Panel className="mb-0 min-h-[420px]">
-            <CardSection label="Configuration" value={profile.level3.electronic.configuration} />
             <CardSection
-              label="Oxidation States"
-              value={profile.level3.electronic.oxidationStates.common.join(', ') || 'N/A'}
+              label={t('modal.configuration')}
+              value={profile.level3.electronic.configuration}
             />
-            <CardSection label="Density" value={profile.level3.physical.density} />
-            <CardSection label="Melting Point" value={profile.level3.physical.meltingPoint} />
-            <CardSection label="Boiling Point" value={profile.level3.physical.boilingPoint} />
+            <CardSection
+              label={t('modal.oxidationStates')}
+              value={
+                profile.level3.electronic.oxidationStates.common.join(', ') ||
+                t('modal.notAvailable')
+              }
+            />
+            <CardSection label={t('modal.density')} value={profile.level3.physical.density} />
+            <CardSection
+              label={t('modal.meltingPoint')}
+              value={profile.level3.physical.meltingPoint}
+            />
+            <CardSection
+              label={t('modal.boilingPoint')}
+              value={profile.level3.physical.boilingPoint}
+            />
           </Panel>
         </View>
 
@@ -146,12 +164,24 @@ export const ElementDetailCards = ({
                 onScroll={onScroll}
                 scrollEventThrottle={16}
               >
-                <CardSection label="Discovery Year" value={profile.level4.history.discoveryYear} />
-                <CardSection label="Discovered By" value={profile.level4.history.discoveredBy} />
-                <CardSection label="Named By" value={profile.level4.history.namedBy} />
-                <CardSection label="Uses" value={profile.level4.uses.join(' · ')} />
-                <CardSection label="Hazards" value={profile.level4.hazards.join(' · ')} />
-                <CardSection label="STSE" value={profile.level4.stseContext.join(' · ')} />
+                <CardSection
+                  label={t('modal.discoveryYear')}
+                  value={profile.level4.history.discoveryYear}
+                />
+                <CardSection
+                  label={t('modal.discoveredBy')}
+                  value={profile.level4.history.discoveredBy}
+                />
+                <CardSection label={t('modal.namedBy')} value={profile.level4.history.namedBy} />
+                <CardSection label={t('modal.uses')} value={profile.level4.uses.join(' · ')} />
+                <CardSection
+                  label={t('modal.hazards')}
+                  value={profile.level4.hazards.join(' · ')}
+                />
+                <CardSection
+                  label={t('modal.stse')}
+                  value={profile.level4.stseContext.join(' · ')}
+                />
               </ScrollView>
             </Panel>
             <ScrollHint

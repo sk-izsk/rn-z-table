@@ -69,5 +69,19 @@ export const frUI: TranslationDict = {
     notAvailable: 'N/D',
     details: 'Détails',
     model3d: 'Modèle 3D',
+    moreBelow: 'Plus bas',
+    cardPager: 'Navigation des cartes',
+  },
+  atom: {
+    shellModel: "Couches de l'atome",
+    nucleus: 'Noyau',
+    protons: 'protons',
+    neutrons: 'neutrons',
+    motion: 'Mouvement',
+    paused: 'En pause',
+    topView: 'Vue du dessus',
+    orbiting: 'En orbite',
+    controlsHint:
+      "Mettez l'animation en pause, aplatissez la vue orbitale ou réinitialisez la disposition.",
   },
 }

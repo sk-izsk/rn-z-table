@@ -69,5 +69,18 @@ export const enUI: TranslationDict = {
     notAvailable: 'N/A',
     details: 'Details',
     model3d: '3D Model',
+    moreBelow: 'More below',
+    cardPager: 'Card pager',
+  },
+  atom: {
+    shellModel: 'Atom shell',
+    nucleus: 'Nucleus',
+    protons: 'protons',
+    neutrons: 'neutrons',
+    motion: 'Motion',
+    paused: 'Paused',
+    topView: 'Top view',
+    orbiting: 'Orbiting',
+    controlsHint: 'Pause motion, flatten the orbit view, or reset the shell layout.',
   },
 }

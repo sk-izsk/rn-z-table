@@ -1,12 +1,17 @@
 import { Ionicons } from '@expo/vector-icons'
+import { AtomRenderer } from '@/components/atoms/AtomRenderer'
 import type { Element } from '@/data/elements/elements'
+import { useAtomShells } from '@/hooks/useAtomShells'
+import { useAppTranslation } from '@/i18n/localize'
 import type { ElementIsotope } from '@/types/elementProfile'
+import { SHELL_NAMES } from '@/utils/atomModel'
 import { Pressable, Text, View } from 'react-native'
 
 type AtomPanelShellProps = {
   element: Element
   isotope: ElementIsotope | null
   paused: boolean
+  speed: number
   topView: boolean
   onTogglePaused: () => void
   onToggleTopView: () => void
@@ -32,23 +37,27 @@ const AtomControl = ({
   </Pressable>
 )
 
-const OrbitRing = ({ size, tilt }: { size: number; tilt: string }) => (
-  <View
-    style={{ width: size, height: size, transform: [{ rotate: tilt }] }}
-    className="absolute rounded-full border-[4px] border-[#e7d36c]/70"
-  />
+const ShellChip = ({ label, electrons }: { label: string; electrons: number }) => (
+  <View className="rounded-full border border-[#d7e4ed] bg-white px-3 py-1.5">
+    <Text className="text-[12px] font-semibold text-slate-600">
+      {label} · {electrons}e
+    </Text>
+  </View>
 )
 
 export const AtomPanelShell = ({
   element,
   isotope,
   paused,
+  speed,
   topView,
   onTogglePaused,
   onToggleTopView,
   onResetView,
 }: AtomPanelShellProps) => {
+  const { t } = useAppTranslation()
   const neutronCount = isotope?.neutronCount ?? Math.max(0, Math.round(element.mass) - element.n)
+  const shells = useAtomShells(element)
 
   return (
     <View className="overflow-hidden rounded-[30px] border border-[#d7e4ed] bg-[#f8fbfd] shadow-panel">
@@ -65,47 +74,49 @@ export const AtomPanelShell = ({
             </View>
           </View>
           <Text className="text-[12px] font-semibold uppercase tracking-[3px] text-slate-400">
-            atom shell
+            {t('atom.shellModel')}
           </Text>
         </View>
       </View>
 
       <View className="items-center bg-[#eef6fb] px-4 py-10">
-        <View className="relative h-[360px] w-full items-center justify-center overflow-hidden rounded-[26px] bg-[#edf5fb]">
-          <OrbitRing size={320} tilt={topView ? '0deg' : '8deg'} />
-          <OrbitRing size={230} tilt={topView ? '0deg' : '-15deg'} />
-          <OrbitRing size={130} tilt={topView ? '0deg' : '22deg'} />
-
-          <View className="absolute h-16 w-16 items-center justify-center rounded-full bg-[#f7c1c0]">
-            <View className="h-11 w-11 rounded-full bg-[#2c3442]" />
-          </View>
-
-          <View className="absolute left-[14%] top-[38%] h-3 w-3 rounded-full bg-[#d6ac35]" />
-          <View className="absolute right-[16%] top-[32%] h-3 w-3 rounded-full bg-[#d6ac35]" />
-          <View className="absolute bottom-[30%] left-[28%] h-3 w-3 rounded-full bg-[#d2852e]" />
-          <View className="absolute bottom-[36%] right-[24%] h-3 w-3 rounded-full bg-[#d2852e]" />
-          <View className="absolute bottom-[22%] right-[38%] h-3.5 w-3.5 rounded-full bg-[#c9ab39]" />
-        </View>
+        <AtomRenderer
+          element={element}
+          isotope={isotope}
+          paused={paused}
+          speed={speed}
+          topView={topView}
+        />
       </View>
 
       <View className="border-t border-[#e2edf3] px-5 py-4">
         <View className="mb-4 flex-row items-center justify-between">
           <View>
             <Text className="text-[12px] font-bold uppercase tracking-[3px] text-slate-400">
-              nucleus
+              {t('atom.nucleus')}
             </Text>
             <Text className="mt-1 text-[16px] font-semibold text-ink">
-              {element.n} protons · {neutronCount} neutrons
+              {element.n} {t('atom.protons')} · {neutronCount} {t('atom.neutrons')}
             </Text>
           </View>
           <View>
             <Text className="text-[12px] font-bold uppercase tracking-[3px] text-slate-400">
-              motion
+              {t('atom.motion')}
             </Text>
             <Text className="mt-1 text-right text-[16px] font-semibold text-ink">
-              {paused ? 'Paused' : topView ? 'Top view' : 'Orbiting'}
+              {paused ? t('atom.paused') : topView ? t('atom.topView') : t('atom.orbiting')}
             </Text>
           </View>
+        </View>
+
+        <View className="mb-4 flex-row flex-wrap gap-2">
+          {shells.map((count, index) => (
+            <ShellChip
+              key={`${SHELL_NAMES[index] ?? index}-${count}`}
+              label={SHELL_NAMES[index] ?? `S${index + 1}`}
+              electrons={count}
+            />
+          ))}
         </View>
 
         <View className="flex-row items-center justify-between">
@@ -119,6 +130,7 @@ export const AtomPanelShell = ({
           </View>
           <AtomControl icon="refresh" onPress={onResetView} />
         </View>
+        <Text className="mt-4 text-[12px] text-slate-500">{t('atom.controlsHint')}</Text>
       </View>
     </View>
   )
