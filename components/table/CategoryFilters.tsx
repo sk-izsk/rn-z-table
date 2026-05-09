@@ -2,6 +2,7 @@ import { Chip } from '@/components/ui/Chip'
 import { Panel } from '@/components/ui/Panel'
 import { CATEGORY_ENTRIES } from '@/data/periodicTableData'
 import { CATEGORY_COLORS, type ElementCategory } from '@/data/elements/elements'
+import { useAppPalette } from '@/hooks/store/useAppPalette'
 import { useAppTranslation } from '@/i18n/localize'
 import { ScrollView, Text, View } from 'react-native'
 
@@ -19,11 +20,15 @@ export const CategoryFilters = ({
   onClear,
 }: CategoryFiltersProps) => {
   const { t } = useAppTranslation()
+  const { colors } = useAppPalette()
 
   return (
     <View className="mb-4">
       <View className="mb-2 flex-row items-center justify-between">
-        <Text className="text-xs font-bold uppercase tracking-[4px] text-slate-500">
+        <Text
+          style={{ color: colors.textMuted }}
+          className="text-xs font-bold uppercase tracking-[4px]"
+        >
           {t('home.filters')}
         </Text>
         {activeCategory ? (
@@ -49,8 +54,14 @@ export const CategoryFilters = ({
       </Panel>
 
       {activeCategory ? (
-        <View className="mt-2 rounded-[18px] border border-[#d6e5ed] bg-white/75 px-4 py-3">
-          <Text className="text-[13px] leading-5 text-slate-500">
+        <View
+          style={{
+            borderColor: colors.line,
+            backgroundColor: colors.surfaceMuted,
+          }}
+          className="mt-2 rounded-[18px] border border-[#d6e5ed] bg-white/75 px-4 py-3"
+        >
+          <Text style={{ color: colors.textMuted }} className="text-[13px] leading-5">
             {t('home.mobileHintPrefix')} {matchCount} {t('home.mobileHintSuffix')}
           </Text>
         </View>
