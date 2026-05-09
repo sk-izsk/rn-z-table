@@ -6,6 +6,7 @@ import {
   ELECTRON_COLORS,
   SHELL_COLORS,
 } from '@/utils/atomModel'
+import { useAppPalette } from '@/hooks/store/useAppPalette'
 import { Gesture, GestureDetector } from 'react-native-gesture-handler'
 import { useEffect, useMemo } from 'react'
 import { Text, View } from 'react-native'
@@ -21,7 +22,7 @@ import Svg, { Circle, Defs, Ellipse, LinearGradient, RadialGradient, Stop } from
 
 const AnimatedView = createAnimatedComponent(View)
 const AnimatedElectron = createAnimatedComponent(View)
-const ORBIT_TILTS = [12, -22, 34, -40, 48, -58, 66] as const
+const ORBIT_TILTS = [8, -12, 18, -22, 28, -34, 40] as const
 
 const ElectronDot = ({
   angle,
@@ -79,7 +80,7 @@ const OrbitLayer = ({
   topView: boolean
 }) => {
   const progress = useSharedValue(0)
-  const orbitHeight = topView ? radius * 2 : radius * 1.05
+  const orbitHeight = topView ? radius * 2 : radius * 1.18
   const angles = useMemo(() => buildElectronAngles(count), [count])
   const tilt = ORBIT_TILTS[shellIndex % ORBIT_TILTS.length]
 
@@ -155,6 +156,7 @@ export const AtomSvgRenderer = ({
   speed,
   topView,
 }: AtomRendererProps) => {
+  const { colors, resolvedTheme } = useAppPalette()
   const model = useMemo(
     () => buildAtomRenderModel(element, isotope?.neutronCount),
     [element, isotope?.neutronCount],
@@ -180,7 +182,10 @@ export const AtomSvgRenderer = ({
 
   return (
     <GestureDetector gesture={pinchGesture}>
-      <View className="h-[360px] w-full items-center justify-center overflow-hidden rounded-[26px] bg-[#edf5fb]">
+      <View
+        style={{ backgroundColor: resolvedTheme === 'dark' ? '#dfeaf3' : '#edf5fb' }}
+        className="h-[360px] w-full items-center justify-center overflow-hidden rounded-[26px]"
+      >
         <AnimatedView style={zoomStyle} className="h-full w-full items-center justify-center">
           <Svg width="100%" height="100%" viewBox="0 0 320 360" style={{ position: 'absolute' }}>
             <Defs>
@@ -226,16 +231,39 @@ export const AtomSvgRenderer = ({
             })}
         </AnimatedView>
 
-        <View className="absolute left-4 top-4 rounded-full border border-[#d7e4ed] bg-white/92 px-3 py-1.5">
-          <Text className="font-mono text-[13px] text-slate-600">{element.config}</Text>
+        <View
+          style={{
+            borderColor: colors.line,
+            backgroundColor: `${colors.surface}E8`,
+          }}
+          className="absolute left-4 top-4 rounded-full border px-3 py-1.5"
+        >
+          <Text style={{ color: colors.textMuted }} className="font-mono text-[13px]">
+            {element.config}
+          </Text>
         </View>
-        <View className="absolute right-4 top-4 rounded-full border border-[#d7e4ed] bg-white/92 px-3 py-1.5">
-          <Text className="font-mono text-[13px] text-slate-600">
+        <View
+          style={{
+            borderColor: colors.line,
+            backgroundColor: `${colors.surface}E8`,
+          }}
+          className="absolute right-4 top-4 rounded-full border px-3 py-1.5"
+        >
+          <Text style={{ color: colors.textMuted }} className="font-mono text-[13px]">
             {isotope?.name ?? `${element.sym}-${Math.round(element.mass)}`}
           </Text>
         </View>
-        <View className="absolute bottom-4 left-4 rounded-full border border-[#d7e4ed] bg-white/90 px-3 py-1.5">
-          <Text className="text-[12px] font-semibold uppercase tracking-[2px] text-slate-500">
+        <View
+          style={{
+            borderColor: colors.line,
+            backgroundColor: `${colors.surface}E6`,
+          }}
+          className="absolute bottom-4 left-4 rounded-full border px-3 py-1.5"
+        >
+          <Text
+            style={{ color: colors.textMuted }}
+            className="text-[12px] font-semibold uppercase tracking-[2px]"
+          >
             {model.element.n}p · {model.neutronCount}n
           </Text>
         </View>
