@@ -1,7 +1,6 @@
 import { AtomPanelShell } from '@/components/atoms/AtomPanelShell'
 import { ElementHero } from '@/components/modal/ElementHero'
 import { ElementDetailCards } from '@/components/modal/ElementDetailCards'
-import { ElementRouteHeader } from '@/components/modal/ElementRouteHeader'
 import { SegmentedControl } from '@/components/ui/SegmentedControl'
 import { Panel } from '@/components/ui/Panel'
 import { Screen } from '@/components/ui/Screen'
@@ -16,15 +15,17 @@ import {
 } from '@/hooks/store/useAnimationStore'
 import { useMassUnit } from '@/hooks/store/useSettingsStore'
 import { useAppTranslation } from '@/i18n/localize'
-import { useLocalSearchParams } from 'expo-router'
+import { useLocalSearchParams, useRouter } from 'expo-router'
 import { useEffect, useState } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, useWindowDimensions } from 'react-native'
 
 type DetailView = 'model' | 'details'
 
 export default function ElementDetailRoute() {
   const { symbol } = useLocalSearchParams<{ symbol: string }>()
+  const router = useRouter()
   const { t } = useAppTranslation()
+  const { height } = useWindowDimensions()
   const massUnit = useMassUnit()
   const animationSpeed = useAnimationSpeed()
   const animationsPaused = useAnimationsPaused()
@@ -44,8 +45,7 @@ export default function ElementDetailRoute() {
 
   if (!element || !profile) {
     return (
-      <Screen>
-        <ElementRouteHeader />
+      <Screen scrollable={false}>
         <Panel>
           <Text className="text-[16px] text-slate-600">Element not found.</Text>
         </Panel>
@@ -54,9 +54,8 @@ export default function ElementDetailRoute() {
   }
 
   return (
-    <Screen>
-      <ElementRouteHeader />
-      <View className="rounded-[34px] border border-[#e0eaef] bg-[#fffcf7] p-3 shadow-panel">
+    <Screen scrollable={false}>
+      <View className="flex-1 rounded-[34px] border border-[#e0eaef] bg-[#fffcf7] p-3 shadow-panel">
         <ElementHero
           profile={profile}
           activeIsotope={selectedIsotope}
@@ -64,6 +63,14 @@ export default function ElementDetailRoute() {
           hasNext={hasNext}
           onPrev={navigatePrev}
           onNext={navigateNext}
+          onClose={() => {
+            if (router.canGoBack()) {
+              router.back()
+              return
+            }
+
+            router.replace('/')
+          }}
         />
         <Panel className="mt-3 py-3">
           <SegmentedControl
@@ -76,19 +83,21 @@ export default function ElementDetailRoute() {
           />
         </Panel>
         {detailView === 'model' ? (
-          <AtomPanelShell
-            element={element}
-            isotope={selectedIsotope}
-            paused={animationsPaused}
-            speed={animationSpeed}
-            topView={topView}
-            onTogglePaused={() => setAnimationsPaused(!animationsPaused)}
-            onToggleTopView={toggleTopView}
-            onResetView={() => {
-              reset()
-              setAnimationsPaused(false)
-            }}
-          />
+          <View style={{ minHeight: Math.max(360, height - 360) }}>
+            <AtomPanelShell
+              element={element}
+              isotope={selectedIsotope}
+              paused={animationsPaused}
+              speed={animationSpeed}
+              topView={topView}
+              onTogglePaused={() => setAnimationsPaused(!animationsPaused)}
+              onToggleTopView={toggleTopView}
+              onResetView={() => {
+                reset()
+                setAnimationsPaused(false)
+              }}
+            />
+          </View>
         ) : (
           <ElementDetailCards
             profile={profile}

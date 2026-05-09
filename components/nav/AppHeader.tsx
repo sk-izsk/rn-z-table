@@ -1,12 +1,13 @@
 import { brand } from '@/constants/theme'
 import { useAppPalette } from '@/hooks/store/useAppPalette'
-import { Link, usePathname } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
 import { Pressable, Text, View } from 'react-native'
 
-export const AppHeader = () => {
-  const pathname = usePathname()
-  const showSettingsShortcut = pathname !== '/settings'
+type AppHeaderProps = {
+  onMenuPress: () => void
+}
+
+export const AppHeader = ({ onMenuPress }: AppHeaderProps) => {
   const { colors } = useAppPalette()
 
   return (
@@ -34,19 +35,16 @@ export const AppHeader = () => {
         </View>
       </View>
 
-      {showSettingsShortcut ? (
-        <Link href="/settings" asChild>
-          <Pressable
-            style={{
-              borderColor: colors.line,
-              backgroundColor: colors.surfaceMuted,
-            }}
-            className="h-12 w-12 items-center justify-center rounded-xl border border-[#d8e4ec] bg-white"
-          >
-            <Ionicons name="menu" color={colors.textMuted} size={22} />
-          </Pressable>
-        </Link>
-      ) : null}
+      <Pressable
+        onPress={onMenuPress}
+        style={{
+          borderColor: colors.line,
+          backgroundColor: colors.surfaceMuted,
+        }}
+        className="h-12 w-12 items-center justify-center rounded-xl border border-[#d8e4ec] bg-white"
+      >
+        <Ionicons name="menu" color={colors.textMuted} size={22} />
+      </Pressable>
     </View>
   )
 }

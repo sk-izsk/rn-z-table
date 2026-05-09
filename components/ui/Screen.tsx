@@ -9,7 +9,9 @@ type ScreenProps = PropsWithChildren<{
 
 export const Screen = ({ children, scrollable = true }: ScreenProps) => {
   const { colors } = useAppPalette()
-  const content = <View className="px-[18px] pb-8 pt-3">{children}</View>
+  const content = (
+    <View className={`px-[18px] pb-8 pt-3 ${scrollable ? '' : 'flex-1'}`}>{children}</View>
+  )
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>

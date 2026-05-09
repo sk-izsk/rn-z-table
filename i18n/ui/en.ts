@@ -8,6 +8,10 @@ export const enUI: TranslationDict = {
     worksheet: 'Worksheet',
     settings: 'Settings',
     language: 'Language',
+    navigate: 'Navigate',
+    menuTitle: 'ZTable menu',
+    appearance: 'Appearance',
+    appearanceDescription: 'Theme and language controls',
   },
   home: {
     eyebrow: 'Table Matrix',

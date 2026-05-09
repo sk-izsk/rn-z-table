@@ -1,13 +1,14 @@
 import { Ionicons } from '@expo/vector-icons'
-import { useAppTranslation } from '@/i18n/localize'
+import { useAppPalette } from '@/hooks/store/useAppPalette'
 import Animated, {
   interpolate,
   useAnimatedStyle,
   useSharedValue,
+  withRepeat,
   withTiming,
 } from 'react-native-reanimated'
 import { useEffect } from 'react'
-import { Pressable, Text, View } from 'react-native'
+import { Pressable, View } from 'react-native'
 
 type ScrollHintProps = {
   visible: boolean
@@ -16,18 +17,29 @@ type ScrollHintProps = {
 }
 
 export const ScrollHint = ({ visible, strength = 1, onPress }: ScrollHintProps) => {
-  const { t } = useAppTranslation()
+  const { colors } = useAppPalette()
   const progress = useSharedValue(visible ? 1 : 0)
+  const bob = useSharedValue(0)
 
   useEffect(() => {
     progress.value = withTiming(visible ? 1 : 0, { duration: 220 })
   }, [progress, visible])
 
+  useEffect(() => {
+    if (!visible) {
+      bob.value = 0
+      return
+    }
+
+    bob.value = withRepeat(withTiming(1, { duration: 680 }), -1, true)
+  }, [bob, visible])
+
   const animatedStyle = useAnimatedStyle(() => ({
     opacity: progress.value * strength,
     transform: [
       {
-        translateY: interpolate(progress.value, [0, 1], [10, 0]),
+        translateY:
+          interpolate(progress.value, [0, 1], [10, 0]) + interpolate(bob.value, [0, 1], [0, 6]),
       },
     ],
   }))
@@ -40,11 +52,17 @@ export const ScrollHint = ({ visible, strength = 1, onPress }: ScrollHintProps) 
     >
       <Pressable
         onPress={onPress}
-        className="flex-row items-center gap-2 rounded-full border border-[#d6e5ed] bg-white/95 px-4 py-2 shadow-panel"
+        style={{
+          borderColor: colors.line,
+          backgroundColor: `${colors.surface}F2`,
+        }}
+        className="h-10 w-10 items-center justify-center rounded-full border shadow-panel"
       >
-        <Text className="text-[12px] font-semibold text-slate-500">{t('modal.moreBelow')}</Text>
-        <View className="h-5 w-5 items-center justify-center rounded-full bg-[#eef4f8]">
-          <Ionicons name="chevron-down" size={14} color="#5b6d80" />
+        <View
+          style={{ backgroundColor: colors.surfaceMuted }}
+          className="h-6 w-6 items-center justify-center rounded-full"
+        >
+          <Ionicons name="chevron-down" size={14} color={colors.textMuted} />
         </View>
       </Pressable>
     </Animated.View>

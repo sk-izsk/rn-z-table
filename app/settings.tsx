@@ -1,5 +1,5 @@
 import { AppHeader } from '@/components/nav/AppHeader'
-import { RouteTabs } from '@/components/nav/RouteTabs'
+import { AppDrawer } from '@/components/nav/AppDrawer'
 import { PageIntro } from '@/components/ui/PageIntro'
 import { Screen } from '@/components/ui/Screen'
 import { SegmentedControl } from '@/components/ui/SegmentedControl'
@@ -18,6 +18,7 @@ import { useAppTranslation } from '@/i18n/localize'
 import type { AppLanguage } from '@/i18n/types'
 import type { MassUnit } from '@/stores/massUnitStore'
 import type { ThemeMode } from '@/stores/themeStore'
+import { useState } from 'react'
 import { Pressable, Switch, Text, View } from 'react-native'
 
 export default function SettingsRoute() {
@@ -33,11 +34,12 @@ export default function SettingsRoute() {
   const setAnimationSpeed = useSetAnimationSpeed()
   const animationsPaused = useAnimationsPaused()
   const setAnimationsPaused = useSetAnimationsPaused()
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   return (
     <Screen>
-      <AppHeader />
-      <RouteTabs />
+      <AppHeader onMenuPress={() => setDrawerOpen(true)} />
+      <AppDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
       <PageIntro
         eyebrow={t('settings.eyebrow')}
         title={t('settings.title')}

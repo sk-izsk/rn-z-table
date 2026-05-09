@@ -94,6 +94,12 @@ export type AtomRenderModel = {
   shellRadii: number[]
 }
 
+export type NucleusParticle = {
+  x: number
+  y: number
+  type: 'proton' | 'neutron'
+}
+
 export const buildShellRadii = (shellCount: number): number[] =>
   Array.from({ length: shellCount }, (_, index) => 52 + index * 34)
 
@@ -117,4 +123,29 @@ export const buildElectronAngles = (count: number): number[] => {
   }
 
   return Array.from({ length: count }, (_, index) => (index / count) * Math.PI * 2)
+}
+
+export const buildNucleusParticles = (
+  protonCount: number,
+  neutronCount: number,
+): NucleusParticle[] => {
+  const total = Math.min(56, protonCount + neutronCount)
+
+  if (total <= 0) {
+    return []
+  }
+
+  const protonSlots = Math.round((protonCount / Math.max(protonCount + neutronCount, 1)) * total)
+
+  return Array.from({ length: total }, (_, index) => {
+    const angle = index * 2.399963229728653
+    const radius = 4 + Math.sqrt(index) * 4.2
+    const mixIndex = (index * 5) % total
+
+    return {
+      x: Math.cos(angle) * radius,
+      y: Math.sin(angle) * radius,
+      type: mixIndex < protonSlots ? 'proton' : 'neutron',
+    }
+  })
 }

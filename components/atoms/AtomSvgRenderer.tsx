@@ -2,6 +2,7 @@ import type { AtomRendererProps } from '@/components/atoms/AtomRenderer'
 import {
   buildAtomRenderModel,
   buildElectronAngles,
+  buildNucleusParticles,
   ELECTRON_COLORS,
   SHELL_COLORS,
 } from '@/utils/atomModel'
@@ -18,6 +19,7 @@ import {
 import Svg, { Circle, Defs, Ellipse, LinearGradient, RadialGradient, Stop } from 'react-native-svg'
 
 const AnimatedView = createAnimatedComponent(View)
+const ORBIT_TILTS = [12, -22, 34, -40, 48, -58, 66] as const
 
 const OrbitLayer = ({
   count,
@@ -35,8 +37,9 @@ const OrbitLayer = ({
   topView: boolean
 }) => {
   const progress = useSharedValue(0)
-  const orbitHeight = topView ? radius * 2 : radius * 1.1
+  const orbitHeight = topView ? radius * 2 : radius * 1.05
   const angles = useMemo(() => buildElectronAngles(count), [count])
+  const tilt = ORBIT_TILTS[shellIndex % ORBIT_TILTS.length]
 
   useEffect(() => {
     if (paused) {
@@ -57,6 +60,9 @@ const OrbitLayer = ({
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [
+      {
+        rotateZ: `${tilt}deg`,
+      },
       {
         rotate: `${progress.value * 360 * (shellIndex % 2 === 0 ? 1 : -1)}deg`,
       },
@@ -83,9 +89,19 @@ const OrbitLayer = ({
           rx={radius - 3}
           ry={orbitHeight / 2 - 3}
           stroke={SHELL_COLORS[shellIndex % SHELL_COLORS.length]}
-          strokeWidth={4}
+          strokeWidth={3}
           fill="none"
-          opacity={0.66}
+          opacity={0.68}
+        />
+        <Ellipse
+          cx={radius}
+          cy={orbitHeight / 2}
+          rx={radius - 1}
+          ry={orbitHeight / 2 - 1}
+          stroke="#ffffff"
+          strokeWidth={1}
+          fill="none"
+          opacity={0.25}
         />
       </Svg>
 
@@ -98,8 +114,8 @@ const OrbitLayer = ({
             key={`${shellIndex}-${index}`}
             style={{
               position: 'absolute',
-              width: 10,
-              height: 10,
+              width: 9,
+              height: 9,
               borderRadius: 999,
               backgroundColor: ELECTRON_COLORS[shellIndex % ELECTRON_COLORS.length],
               transform: [{ translateX: x }, { translateY: y }],
@@ -122,6 +138,10 @@ export const AtomSvgRenderer = ({
     () => buildAtomRenderModel(element, isotope?.neutronCount),
     [element, isotope?.neutronCount],
   )
+  const nucleusParticles = useMemo(
+    () => buildNucleusParticles(model.element.n, model.neutronCount),
+    [model.element.n, model.neutronCount],
+  )
 
   return (
     <View className="h-[360px] w-full items-center justify-center overflow-hidden rounded-[26px] bg-[#edf5fb]">
@@ -132,21 +152,22 @@ export const AtomSvgRenderer = ({
             <Stop offset="100%" stopColor="#d6ecf8" stopOpacity="0.2" />
           </LinearGradient>
           <RadialGradient id="nucleusGlow" cx="50%" cy="50%" r="50%">
-            <Stop offset="0%" stopColor="#f6938b" stopOpacity="0.9" />
-            <Stop offset="100%" stopColor="#efc7d5" stopOpacity="0.32" />
+            <Stop offset="0%" stopColor="#ffb39d" stopOpacity="0.92" />
+            <Stop offset="100%" stopColor="#efc7d5" stopOpacity="0.26" />
           </RadialGradient>
         </Defs>
         <Circle cx="160" cy="182" r="46" fill="url(#nucleusGlow)" />
-        <Circle cx="160" cy="182" r="18" fill="#303846" opacity="0.92" />
-        <Ellipse
-          cx="160"
-          cy="182"
-          rx="38"
-          ry="12"
-          stroke="url(#orbitGlow)"
-          strokeWidth="6"
-          fill="none"
-        />
+        <Circle cx="160" cy="182" r="17" fill="#303846" opacity="0.84" />
+        {nucleusParticles.map((particle, index) => (
+          <Circle
+            key={`${particle.type}-${index}`}
+            cx={160 + particle.x}
+            cy={182 + particle.y}
+            r={particle.type === 'proton' ? 4.1 : 3.9}
+            fill={particle.type === 'proton' ? '#ff6b4b' : '#404654'}
+            opacity={0.96}
+          />
+        ))}
       </Svg>
 
       {model.shellRadii
