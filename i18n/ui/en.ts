@@ -9,6 +9,20 @@ export const enUI: TranslationDict = {
     settings: 'Settings',
     language: 'Language',
   },
+  home: {
+    searchPlaceholder: 'Search elements... (symbol, name, or number)',
+    filters: 'Element filters',
+    clear: 'Clear',
+    allElements: 'All elements',
+    matrix: 'ZTable matrix',
+    indexed: 'elements indexed',
+    mobileHintPrefix: 'Focused on first match for this category.',
+    mobileHintSuffix: 'elements highlighted.',
+    seriesLanthanides: 'Lanthanides',
+    seriesActinides: 'Actinides',
+    seriesRangeLanthanides: '57-71',
+    seriesRangeActinides: '89-103',
+  },
   settings: {
     title: 'Settings',
     subtitle: 'Control language, animation speed, and global preferences.',
@@ -19,6 +33,7 @@ export const enUI: TranslationDict = {
   common: {
     dark: 'Dark',
     light: 'Light',
+    search: 'Search',
   },
   modal: {
     type: 'Type',

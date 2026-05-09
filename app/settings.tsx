@@ -28,7 +28,9 @@ export default function SettingsRoute() {
           <Text className="text-sm text-slate-500">Language: {language}</Text>
           <Text className="text-sm text-slate-500">Theme: {themeMode}</Text>
           <Text className="text-sm text-slate-500">Mass unit: {massUnit}</Text>
-          <Text className="text-sm text-slate-500">Animation speed: {animationSpeed.toFixed(2)}x</Text>
+          <Text className="text-sm text-slate-500">
+            Animation speed: {animationSpeed.toFixed(2)}x
+          </Text>
           <Text className="text-sm text-slate-500">
             Animations paused: {animationsPaused ? 'yes' : 'no'}
           </Text>

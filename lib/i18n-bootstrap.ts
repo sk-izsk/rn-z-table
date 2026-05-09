@@ -12,7 +12,8 @@ export const bootstrapI18n = async (): Promise<void> => {
   if (!bootstrapPromise) {
     bootstrapPromise = (async () => {
       await ensureI18nReady()
-      const persisted = await readPersistedStoreState<PersistedLanguageState>(APP_LANGUAGE_STORAGE_KEY)
+      const persisted =
+        await readPersistedStoreState<PersistedLanguageState>(APP_LANGUAGE_STORAGE_KEY)
       const language = persisted?.language
       const nextLanguage = language && isSupportedLanguage(language) ? language : DEFAULT_LANGUAGE
       await setAppLanguage(nextLanguage)

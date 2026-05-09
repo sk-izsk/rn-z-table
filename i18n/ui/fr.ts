@@ -9,6 +9,20 @@ export const frUI: TranslationDict = {
     settings: 'Parametres',
     language: 'Langue',
   },
+  home: {
+    searchPlaceholder: 'Rechercher elements... (symbole, nom ou numero)',
+    filters: 'Filtres des elements',
+    clear: 'Effacer',
+    allElements: 'Tous les elements',
+    matrix: 'Matrice ZTable',
+    indexed: 'elements indexes',
+    mobileHintPrefix: 'Premier resultat de cette categorie cible.',
+    mobileHintSuffix: 'elements surlignes.',
+    seriesLanthanides: 'Lanthanides',
+    seriesActinides: 'Actinides',
+    seriesRangeLanthanides: '57-71',
+    seriesRangeActinides: '89-103',
+  },
   settings: {
     title: 'Parametres',
     subtitle: 'Controlez la langue, la vitesse d animation et les preferences globales.',
@@ -19,6 +33,7 @@ export const frUI: TranslationDict = {
   common: {
     dark: 'Sombre',
     light: 'Clair',
+    search: 'Recherche',
   },
   modal: {
     type: 'Type',
