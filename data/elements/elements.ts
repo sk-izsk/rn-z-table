@@ -1,0 +1,21 @@
+import rawElements from './elements.json'
+import {
+  CATEGORY_COLORS,
+  CATEGORY_LABELS,
+  type Element,
+  type ElementCategory,
+  type Phase,
+} from './schema'
+
+export { CATEGORY_COLORS, CATEGORY_LABELS }
+export type { Element, ElementCategory, Phase }
+
+export const elements = rawElements as Element[]
+
+export const elementsByNumber: Record<number, Element> = Object.fromEntries(
+  elements.map((element) => [element.n, element]),
+)
+
+export const elementsBySymbol: Record<string, Element> = Object.fromEntries(
+  elements.map((element) => [element.sym, element]),
+)

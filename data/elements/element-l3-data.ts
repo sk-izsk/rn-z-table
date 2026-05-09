@@ -1,0 +1,6 @@
+import rawElementL3Data from './element-l3-data.json'
+import type { ElementL3Record } from './schema'
+
+export type { ElementL3Record }
+
+export const ELEMENT_L3_DATA = rawElementL3Data as Record<number, ElementL3Record>

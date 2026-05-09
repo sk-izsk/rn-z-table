@@ -1,23 +1,33 @@
+import { APP_ANIMATION_STORAGE_KEY } from '@/i18n/config'
+import { zustandStorage } from '@/lib/async-storage'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-interface AnimationStore {
+interface AnimationStoreState {
   animationSpeed: number
-  setAnimationSpeed: (speed: number) => void
   animationsPaused: boolean
+  setAnimationSpeed: (speed: number) => void
   setAnimationsPaused: (paused: boolean) => void
 }
 
-const clampAnimationSpeed = (speed: number) => Math.max(0.1, Math.min(2, speed))
+const clampAnimationSpeed = (speed: number): number => Math.max(0.1, Math.min(2, speed))
 
-export const useAnimationStore = create<AnimationStore>()(
+export const useAnimationStore = create<AnimationStoreState>()(
   persist(
     (set) => ({
       animationSpeed: 0.3,
-      setAnimationSpeed: (speed) => set({ animationSpeed: clampAnimationSpeed(speed) }),
       animationsPaused: false,
-      setAnimationsPaused: (paused) => set({ animationsPaused: paused }),
+      setAnimationSpeed: (animationSpeed) =>
+        set({ animationSpeed: clampAnimationSpeed(animationSpeed) }),
+      setAnimationsPaused: (animationsPaused) => set({ animationsPaused }),
     }),
-    { name: 'zperiod_animation_v1' },
+    {
+      name: APP_ANIMATION_STORAGE_KEY,
+      storage: zustandStorage,
+      partialize: (state) => ({
+        animationSpeed: state.animationSpeed,
+        animationsPaused: state.animationsPaused,
+      }),
+    },
   ),
 )
