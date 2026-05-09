@@ -1,17 +1,25 @@
+import { APP_THEME_STORAGE_KEY } from '@/i18n/config'
+import { zustandStorage } from '@/lib/async-storage'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-interface ThemeStore {
-  darkMode: boolean
-  toggleDarkMode: () => void
+export type ThemeMode = 'system' | 'light' | 'dark'
+
+interface ThemeStoreState {
+  themeMode: ThemeMode
+  setThemeMode: (themeMode: ThemeMode) => void
 }
 
-export const useThemeStore = create<ThemeStore>()(
+export const useThemeStore = create<ThemeStoreState>()(
   persist(
     (set) => ({
-      darkMode: false,
-      toggleDarkMode: () => set((state) => ({ darkMode: !state.darkMode })),
+      themeMode: 'system',
+      setThemeMode: (themeMode) => set({ themeMode }),
     }),
-    { name: 'zperiod_theme_v1' },
+    {
+      name: APP_THEME_STORAGE_KEY,
+      storage: zustandStorage,
+      partialize: (state) => ({ themeMode: state.themeMode }),
+    },
   ),
 )
