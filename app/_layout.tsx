@@ -6,6 +6,7 @@ import { Stack } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
 import { StatusBar } from 'expo-status-bar'
 import { useEffect, useState } from 'react'
+import { Platform } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { ThemeProvider } from '@react-navigation/native'
@@ -60,8 +61,8 @@ export default function RootLayout() {
             <Stack.Screen
               name="element/[symbol]"
               options={{
-                presentation: 'modal',
-                animation: 'slide_from_bottom',
+                presentation: Platform.OS === 'ios' ? 'modal' : 'card',
+                animation: Platform.OS === 'ios' ? 'slide_from_bottom' : 'none',
               }}
             />
           </Stack>

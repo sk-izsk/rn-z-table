@@ -1,4 +1,5 @@
 import { routes } from '@/constants/routes'
+import { useAppPalette } from '@/hooks/store/useAppPalette'
 import { useAppTranslation } from '@/i18n/localize'
 import { Ionicons } from '@expo/vector-icons'
 import { Link, usePathname } from 'expo-router'
@@ -15,6 +16,7 @@ const items = [
 export const RouteTabs = () => {
   const pathname = usePathname()
   const { t } = useAppTranslation()
+  const { colors } = useAppPalette()
 
   return (
     <View className="mt-4 flex-row flex-wrap gap-2">
@@ -23,12 +25,19 @@ export const RouteTabs = () => {
         return (
           <Link key={href} href={href} asChild>
             <Pressable
+              style={{
+                borderColor: active ? colors.accent : colors.line,
+                backgroundColor: active ? colors.accent : colors.surface,
+              }}
               className={`flex-row items-center gap-2 rounded-2xl border px-4 py-3 ${
                 active ? 'border-accent bg-accent' : 'border-[#d6e5ed] bg-white'
               }`}
             >
-              <Ionicons name={icon} color={active ? '#f7fbfd' : '#627487'} size={16} />
-              <Text className={active ? 'font-semibold text-white' : 'font-medium text-slate-600'}>
+              <Ionicons name={icon} color={active ? '#f7fbfd' : colors.textMuted} size={16} />
+              <Text
+                style={{ color: active ? '#ffffff' : colors.textMuted }}
+                className={active ? 'font-semibold text-white' : 'font-medium text-slate-600'}
+              >
                 {t(`nav.${key}`)}
               </Text>
             </Pressable>

@@ -4,6 +4,7 @@ import { Panel } from '@/components/ui/Panel'
 import { SearchInput } from '@/components/ui/SearchInput'
 import { ACTINIDES, LANTHANIDES, MAIN_GRID_CELLS } from '@/data/periodicTableData'
 import { type Element, type ElementCategory } from '@/data/elements/elements'
+import { useAppPalette } from '@/hooks/store/useAppPalette'
 import { useLocalizedElementRecords } from '@/hooks/useLocalizedElementRecords'
 import {
   useFilterCategory,
@@ -21,14 +22,26 @@ const { width: cellWidth, height: cellHeight, gap } = elementCellSize
 const gridWidth = 18 * cellWidth + 17 * gap
 const gridHeight = 7 * cellHeight + 6 * gap
 
-const PlaceholderCell = memo(({ label }: { label?: string }) => (
-  <View
-    style={{ width: cellWidth, height: cellHeight }}
-    className={`items-center justify-center rounded-[14px] ${label ? 'bg-[#eef4f8]' : ''}`}
-  >
-    {label ? <Text className="text-[12px] font-semibold text-slate-400">{label}</Text> : null}
-  </View>
-))
+const PlaceholderCell = memo(({ label }: { label?: string }) => {
+  const { colors } = useAppPalette()
+
+  return (
+    <View
+      style={{
+        width: cellWidth,
+        height: cellHeight,
+        backgroundColor: label ? colors.surfaceMuted : 'transparent',
+      }}
+      className="items-center justify-center rounded-[14px]"
+    >
+      {label ? (
+        <Text style={{ color: colors.textMuted }} className="text-[12px] font-semibold">
+          {label}
+        </Text>
+      ) : null}
+    </View>
+  )
+})
 PlaceholderCell.displayName = 'PlaceholderCell'
 
 const SeriesRow = memo(
@@ -73,6 +86,7 @@ SeriesRow.displayName = 'SeriesRow'
 export const PeriodicTable = () => {
   const router = useRouter()
   const { t } = useAppTranslation()
+  const { colors } = useAppPalette()
   const searchQuery = useSearchQuery()
   const setSearchQuery = useSetSearchQuery()
   const filterCategory = useFilterCategory()
@@ -140,20 +154,40 @@ export const PeriodicTable = () => {
       />
 
       <Panel className="overflow-hidden px-4 py-4">
-        <View className="absolute left-[-24] top-[-12] h-28 w-32 rounded-full bg-[#dff2f8]" />
-        <View className="absolute right-[-36] top-12 h-36 w-36 rounded-full bg-[#eef8fb]" />
+        <View
+          style={{ backgroundColor: colors.accentSoft }}
+          className="absolute left-[-24] top-[-12] h-28 w-32 rounded-full opacity-60"
+        />
+        <View
+          style={{ backgroundColor: colors.surfaceMuted }}
+          className="absolute right-[-36] top-12 h-36 w-36 rounded-full opacity-80"
+        />
         <View className="mb-3 flex-row items-center justify-between">
-          <Text className="text-xs font-bold uppercase tracking-[4px] text-slate-500">
+          <Text
+            style={{ color: colors.textMuted }}
+            className="text-xs font-bold uppercase tracking-[4px]"
+          >
             {t('home.matrix')}
           </Text>
-          <Text className="text-sm text-slate-500">118 {t('home.indexed')}</Text>
+          <Text style={{ color: colors.textMuted }} className="text-sm">
+            118 {t('home.indexed')}
+          </Text>
         </View>
 
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ paddingRight: 14 }}
+        >
           <View style={{ width: gridWidth }} className="pr-2">
             <View
-              style={{ width: gridWidth, height: gridHeight }}
-              className="relative rounded-[24px] border border-[#dde9f0] bg-[#f6fbfd] p-2"
+              style={{
+                width: gridWidth,
+                height: gridHeight,
+                borderColor: colors.line,
+                backgroundColor: colors.surfaceMuted,
+              }}
+              className="relative rounded-[24px] border p-2"
             >
               {MAIN_GRID_CELLS.map((cell) => {
                 const left = 8 + (cell.col - 1) * (cellWidth + gap)

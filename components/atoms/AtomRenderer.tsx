@@ -8,6 +8,7 @@ export type AtomRendererProps = {
   paused: boolean
   speed: number
   topView: boolean
+  stageHeight?: number
 }
 
 export const AtomRenderer = (props: AtomRendererProps) => {

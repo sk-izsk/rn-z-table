@@ -13,9 +13,9 @@ export const lightColors = {
 export const darkColors = {
   background: '#0e1820',
   surface: '#132430',
-  surfaceMuted: '#19303e',
+  surfaceMuted: '#1b3342',
   text: '#eff7fb',
-  textMuted: '#95abbb',
+  textMuted: '#b7c8d6',
   line: '#254658',
   accent: '#61bedb',
   accentSoft: '#214758',

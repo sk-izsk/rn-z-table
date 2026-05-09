@@ -9,8 +9,8 @@ type ElementCellProps = {
   onPress: (element: Element) => void
 }
 
-const CELL_WIDTH = 64
-const CELL_HEIGHT = 72
+const CELL_WIDTH = 56
+const CELL_HEIGHT = 68
 
 const ElementCellComponent = ({
   element,
@@ -35,7 +35,7 @@ const ElementCellComponent = ({
     >
       <View className="absolute inset-0 bg-white/10" />
       <Text className="text-[10px] font-semibold text-white">{element.n}</Text>
-      <Text className="mt-0.5 text-[24px] font-black leading-7 text-white">{element.sym}</Text>
+      <Text className="mt-0.5 text-[22px] font-black leading-6 text-white">{element.sym}</Text>
       <Text className="mt-auto text-[10px] font-medium text-white/95" numberOfLines={1}>
         {element.name}
       </Text>

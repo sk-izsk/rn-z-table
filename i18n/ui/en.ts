@@ -8,8 +8,16 @@ export const enUI: TranslationDict = {
     worksheet: 'Worksheet',
     settings: 'Settings',
     language: 'Language',
+    navigate: 'Navigate',
+    menuTitle: 'ZTable menu',
+    appearance: 'Appearance',
+    appearanceDescription: 'Theme and language controls',
   },
   home: {
+    eyebrow: 'Table Matrix',
+    title: 'Periodic Table',
+    description:
+      'Searchable mobile table, localized filters, and dense native grid aligned with the source app.',
     searchPlaceholder: 'Search elements... (symbol, name, or number)',
     filters: 'Element filters',
     clear: 'Clear',

@@ -1,50 +1,121 @@
-# Welcome to your Expo app 👋
+# ZTable Native
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Expo React Native rebuild of the original ZTable chemistry web app, using the existing root-level Expo layout and keeping domain logic outside the router layer.
 
-## Get started
+## Stack
 
-1. Install dependencies
+- Expo Router
+- React Native + NativeWind
+- Zustand with AsyncStorage persistence
+- i18next + react-i18next
+- Reanimated + Gesture Handler
+- Bun for package management and scripts
+- OXC (`oxlint`, `oxfmt`) for lint and formatting
 
-   ```bash
-   npm install
-   ```
+## Root structure
 
-2. Start the app
+- `app/`: route layer only
+- `components/`: reusable UI and feature components
+- `data/`: chemistry datasets and worksheet seed data
+- `hooks/`: focused hooks, including store selectors and modal/tool hooks
+- `stores/`: Zustand stores for persisted and transient state
+- `utils/`: pure chemistry and profile logic
+- `i18n/`: translation resources and bootstrap flow
+- `lib/`: storage and deferred-worker fallback helpers
+- `test/`: Bun-based core logic tests
 
-   ```bash
-   npx expo start
-   ```
+## Implemented product areas
 
-In the output, you'll find options to open the app in a
+- searchable periodic table
+- element detail route with card paging and scroll hint
+- atom renderer abstraction with SVG/Reanimated implementation
+- ions reference
+- chemistry tools
+  - molar mass
+  - equation balancer
+  - solubility lookup
+- worksheet generator with native share export
+- persisted settings
+  - language
+  - theme
+  - mass unit
+  - animation preferences
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Architecture notes
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Router boundary
 
-## Get a fresh project
+`app/` owns only route composition. Reusable screens and view logic live in `components/`, `hooks/`, and `utils/`.
 
-When you're ready, run:
+### State model
+
+Settings are split into focused stores:
+
+- `languageStore`
+- `themeStore`
+- `massUnitStore`
+- `animationStore`
+- `searchStore`
+- `filterStore`
+- `elementSelectionStore`
+
+Selector hooks in `hooks/store/` keep rerender scope tight.
+
+### Chemistry logic reuse
+
+Web-transferable chemistry logic was preserved in `utils/` where possible:
+
+- `chemistry.ts`
+- `molarMass.ts`
+- `balancer.ts`
+- `elementProfile.ts`
+
+The balancer is wrapped by `useEquationBalancer()` so the UI can move off-thread later without route rewrites.
+
+### Atom rendering
+
+Atom math is kept separate from rendering:
+
+- `utils/atomModel.ts`: shell parsing, neutron count, render model
+- `components/atoms/AtomRenderer.tsx`: abstraction entry
+- `components/atoms/AtomSvgRenderer.tsx`: first native implementation
+
+### Localization
+
+The app uses `i18next` and `react-i18next`, not the previous web i18n package. Language is bootstrapped before the app shell renders and persisted with Zustand + AsyncStorage.
+
+## Commands
 
 ```bash
-npm run reset-project
+bun install
+bun run start
+bun run typecheck
+bun run lint:check
+bun run fmt:check
+bun run test
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Testing
 
-## Learn more
+Core logic tests use Bun's built-in runner:
 
-To learn more about developing your project with Expo, look at the following resources:
+- `test/chemistry.test.js`
+- `test/molarMass.test.js`
+- `test/balancer.test.js`
+- `test/elementProfile.test.js`
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+These cover the highest-value transferable domain logic without introducing a full RN component test runner yet.
 
-## Join the community
+## Current limits
 
-Join our community of developers creating universal apps.
+- dark mode is applied at the app shell and major reusable surface level, but some feature-specific components still use light-biased hardcoded colors
+- worksheet export currently uses native share text output, not PDF generation
+- runtime/device verification is still needed on iOS/Android/web
+- OXC warnings remain in several long files and some legacy helper files
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Migration decisions
+
+- web modal detail flow -> native route modal presentation
+- web worker balancer -> deferred service hook boundary
+- browser export flow -> native share flow
+- CSS and vanilla-extract -> NativeWind + theme palette hook

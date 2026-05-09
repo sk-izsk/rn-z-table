@@ -2,23 +2,67 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import type { StateStorage } from 'zustand/middleware'
 import { createJSONStorage } from 'zustand/middleware'
 
-export const appStorage: StateStorage = {
-  getItem: async (name) => {
+const memoryStorage = new Map<string, string>()
+let nativeStorageAvailable = true
+
+const getFallbackItem = (name: string) => memoryStorage.get(name) ?? null
+
+const markNativeStorageUnavailable = () => {
+  nativeStorageAvailable = false
+}
+
+const safeGetItem = async (name: string) => {
+  if (!nativeStorageAvailable) {
+    return getFallbackItem(name)
+  }
+
+  try {
     const value = await AsyncStorage.getItem(name)
     return value ?? null
-  },
-  setItem: async (name, value) => {
+  } catch {
+    markNativeStorageUnavailable()
+    return getFallbackItem(name)
+  }
+}
+
+const safeSetItem = async (name: string, value: string) => {
+  memoryStorage.set(name, value)
+
+  if (!nativeStorageAvailable) {
+    return
+  }
+
+  try {
     await AsyncStorage.setItem(name, value)
-  },
-  removeItem: async (name) => {
+  } catch {
+    markNativeStorageUnavailable()
+  }
+}
+
+const safeRemoveItem = async (name: string) => {
+  memoryStorage.delete(name)
+
+  if (!nativeStorageAvailable) {
+    return
+  }
+
+  try {
     await AsyncStorage.removeItem(name)
-  },
+  } catch {
+    markNativeStorageUnavailable()
+  }
+}
+
+export const appStorage: StateStorage = {
+  getItem: async (name) => safeGetItem(name),
+  setItem: async (name, value) => safeSetItem(name, value),
+  removeItem: async (name) => safeRemoveItem(name),
 }
 
 export const zustandStorage = createJSONStorage(() => appStorage)
 
 export const readPersistedJSON = async <T>(key: string): Promise<T | null> => {
-  const raw = await AsyncStorage.getItem(key)
+  const raw = await safeGetItem(key)
   if (!raw) {
     return null
   }

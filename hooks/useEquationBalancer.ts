@@ -1,4 +1,4 @@
-import { runDeferredTask } from '@/lib/worker-fallback'
+import { runNativeTaskWithFallback } from '@/lib/worker-fallback'
 import { balanceEquation, type BalanceResult } from '@/utils/balancer'
 import { useCallback, useState } from 'react'
 
@@ -16,7 +16,14 @@ export const useEquationBalancer = (): EquationBalancerState => {
     setPending(true)
 
     try {
-      const nextResult = await runDeferredTask(() => balanceEquation(input))
+      const nextResult = await runNativeTaskWithFallback(
+        input,
+        (equationInput) => {
+          'worklet'
+          return balanceEquation(equationInput)
+        },
+        (equationInput) => balanceEquation(equationInput),
+      )
       setResult(nextResult)
     } finally {
       setPending(false)

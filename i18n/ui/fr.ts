@@ -8,8 +8,16 @@ export const frUI: TranslationDict = {
     worksheet: 'Fiche',
     settings: 'Parametres',
     language: 'Langue',
+    navigate: 'Navigation',
+    menuTitle: 'Menu ZTable',
+    appearance: 'Apparence',
+    appearanceDescription: 'Controles de theme et de langue',
   },
   home: {
+    eyebrow: 'Matrice du tableau',
+    title: 'Tableau periodique',
+    description:
+      'Tableau mobile consultable avec filtres localises et grille dense proche de l app source.',
     searchPlaceholder: 'Rechercher elements... (symbole, nom ou numero)',
     filters: 'Filtres des elements',
     clear: 'Effacer',
