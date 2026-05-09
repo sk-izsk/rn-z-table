@@ -174,11 +174,7 @@ export const PeriodicTable = () => {
           </Text>
         </View>
 
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ paddingRight: cellWidth + 12 }}
-        >
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <View style={{ width: gridWidth }} className="pr-2">
             <View
               style={{

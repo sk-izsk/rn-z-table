@@ -21,17 +21,26 @@ const NavButton = ({
   disabled: boolean
   label: string
   onPress: () => void
-}) => (
-  <Pressable
-    onPress={onPress}
-    disabled={disabled}
-    className={`h-12 w-12 items-center justify-center rounded-xl border ${
-      disabled ? 'border-[#e4edf2] bg-[#f5f8fa]' : 'border-[#cfe0ea] bg-white'
-    }`}
-  >
-    <Text className={disabled ? 'text-slate-300' : 'text-slate-600'}>{label}</Text>
-  </Pressable>
-)
+}) => {
+  const { colors } = useAppPalette()
+
+  return (
+    <Pressable
+      onPress={onPress}
+      disabled={disabled}
+      style={{
+        borderColor: colors.line,
+        backgroundColor: disabled ? colors.surfaceMuted : colors.surface,
+        opacity: disabled ? 0.55 : 1,
+      }}
+      className="h-11 min-w-[94px] items-center justify-center rounded-full border px-4"
+    >
+      <Text style={{ color: colors.textMuted }} className="text-[14px] font-semibold">
+        {label}
+      </Text>
+    </Pressable>
+  )
+}
 
 export const ElementHero = ({
   profile,
@@ -100,11 +109,20 @@ export const ElementHero = ({
             </Text>
           </View>
         </View>
-        <View className="flex-row gap-2">
-          <NavButton disabled={!hasPrev} label="‹" onPress={onPrev} />
-          <NavButton disabled={!hasNext} label="›" onPress={onNext} />
-          <NavButton disabled={false} label="×" onPress={onClose} />
-        </View>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Close element detail"
+          onPress={onClose}
+          style={{
+            borderColor: colors.line,
+            backgroundColor: colors.surfaceMuted,
+          }}
+          className="h-11 w-11 items-center justify-center rounded-xl border"
+        >
+          <Text style={{ color: colors.textMuted }} className="text-[20px] font-semibold">
+            ×
+          </Text>
+        </Pressable>
       </View>
 
       <View style={{ borderTopColor: colors.line }} className="border-t pt-4">
@@ -131,6 +149,11 @@ export const ElementHero = ({
               {activeIsotope?.name ?? `${profile.symbol}-${massNumber}`}
             </Text>
           </View>
+        </View>
+
+        <View className="mt-3 flex-row justify-end gap-2">
+          <NavButton disabled={!hasPrev} label="Previous" onPress={onPrev} />
+          <NavButton disabled={!hasNext} label="Next" onPress={onNext} />
         </View>
       </View>
     </View>

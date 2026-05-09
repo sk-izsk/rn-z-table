@@ -13,6 +13,7 @@ import {
   useAnimationSpeed,
   useSetAnimationsPaused,
 } from '@/hooks/store/useAnimationStore'
+import { useAppPalette } from '@/hooks/store/useAppPalette'
 import { useMassUnit } from '@/hooks/store/useSettingsStore'
 import { useAppTranslation } from '@/i18n/localize'
 import { useLocalSearchParams, useRouter } from 'expo-router'
@@ -26,6 +27,7 @@ export default function ElementDetailRoute() {
   const router = useRouter()
   const { t } = useAppTranslation()
   const { height } = useWindowDimensions()
+  const { colors } = useAppPalette()
   const massUnit = useMassUnit()
   const animationSpeed = useAnimationSpeed()
   const animationsPaused = useAnimationsPaused()
@@ -55,7 +57,13 @@ export default function ElementDetailRoute() {
 
   return (
     <Screen scrollable={false}>
-      <View className="flex-1 rounded-[34px] border border-[#e0eaef] bg-[#fffcf7] p-3 shadow-panel">
+      <View
+        style={{
+          borderColor: colors.line,
+          backgroundColor: colors.surface,
+        }}
+        className="flex-1 rounded-[34px] border p-3 shadow-panel"
+      >
         <ElementHero
           profile={profile}
           activeIsotope={selectedIsotope}
