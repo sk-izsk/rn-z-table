@@ -23,7 +23,7 @@ export const CategoryFilters = ({
   return (
     <View className="mb-4">
       <View className="mb-2 flex-row items-center justify-between">
-        <Text className="text-xs font-bold uppercase tracking-[4px] text-slate-500">
+        <Text className="text-xs font-bold uppercase tracking-[4px] text-slate-500 dark:text-[#95abbb]">
           {t('home.filters')}
         </Text>
         {activeCategory ? (
@@ -49,8 +49,8 @@ export const CategoryFilters = ({
       </Panel>
 
       {activeCategory ? (
-        <View className="mt-2 rounded-[18px] border border-[#d6e5ed] bg-white/75 px-4 py-3">
-          <Text className="text-[13px] leading-5 text-slate-500">
+        <View className="mt-2 rounded-[18px] border border-[#d6e5ed] bg-white/75 px-4 py-3 dark:border-line-dark dark:bg-panel-dark/80">
+          <Text className="text-[13px] leading-5 text-slate-500 dark:text-[#95abbb]">
             {t('home.mobileHintPrefix')} {matchCount} {t('home.mobileHintSuffix')}
           </Text>
         </View>

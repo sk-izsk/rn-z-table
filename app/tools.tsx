@@ -8,7 +8,7 @@ import { useAppTranslation } from '@/i18n/localize'
 import { SOLUBILITY_ANIONS, SOLUBILITY_CATIONS } from '@/data/tools/solubility'
 import { useState } from 'react'
 
-export default function ToolsRoute() {
+const ToolsRoute = () => {
   const { t } = useAppTranslation()
   const [cation, setCation] = useState<(typeof SOLUBILITY_CATIONS)[number]>('Li⁺')
   const [anion, setAnion] = useState<(typeof SOLUBILITY_ANIONS)[number]>('Cl⁻')
@@ -32,3 +32,5 @@ export default function ToolsRoute() {
     </Screen>
   )
 }
+
+export default ToolsRoute

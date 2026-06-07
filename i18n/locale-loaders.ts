@@ -9,7 +9,7 @@ const elementLoaders: Record<AppLanguage, () => Promise<Record<string, ElementLo
 }
 
 const ionLoaders: Record<AppLanguage, () => Promise<Record<string, IonLocaleRecord>>> = {
-  en: async () => ({}),
+  en: () => Promise.resolve({}),
   fr: async () => (await import('./locales/ions/fr')).default,
 }
 

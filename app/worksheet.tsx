@@ -4,7 +4,7 @@ import { PageIntro } from '@/components/ui/PageIntro'
 import { Screen } from '@/components/ui/Screen'
 import { useAppTranslation } from '@/i18n/localize'
 
-export default function WorksheetRoute() {
+const WorksheetRoute = () => {
   const { t } = useAppTranslation()
 
   return (
@@ -19,3 +19,5 @@ export default function WorksheetRoute() {
     </Screen>
   )
 }
+
+export default WorksheetRoute

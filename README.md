@@ -1,50 +1,111 @@
-# Welcome to your Expo app 👋
+# z-table
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+`z-table` is an Expo + React Native chemistry reference app with a periodic table, localized element details, atom-shell visualization, ion references, and classroom-oriented chemistry tools.
 
-## Get started
+## Stack
 
-1. Install dependencies
+- Expo Router
+- React Native
+- TypeScript
+- Zustand
+- NativeWind
+- Bun tooling
 
-   ```bash
-   npm install
-   ```
+## Project Structure
 
-2. Start the app
+The routing layer stays in `app/`, but route files are intentionally thin. Most behavior now lives in feature modules.
 
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```text
+app/                     Expo Router entrypoints and route shells
+features/
+  app/                   bootstrap + shared route stack wiring
+  chemistry/             formula parsing, balancing, molar mass
+  elements/              element detail screen, atom/hero/detail UI, profile builders
+  settings/              settings screen sections + state wiring
+  table/                 periodic table filtering, grid, and series views
+  tools/                 worksheet, solubility, ion reference feature UI
+components/              shared UI primitives and stable compatibility exports
+data/                    static chemistry datasets
+hooks/                   reusable app hooks and store selectors
+i18n/                    translation loaders and locale dictionaries
+test/chemistry/          chemistry and worksheet domain tests
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Folder Rules
 
-## Learn more
+- Keep `app/` route files thin. Screen orchestration belongs in `features/*`.
+- Keep `components/ui` and other shared component folders generic and reusable.
+- Put chemistry/domain logic in `features/chemistry`, not inside route or screen components.
+- Keep old import paths stable only as compatibility re-exports when needed during refactors.
+- Split large locale/data dictionaries by stable content ranges instead of growing single files indefinitely.
 
-To learn more about developing your project with Expo, look at the following resources:
+## Chemistry Modules
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### `features/chemistry/formula`
 
-## Join the community
+- Unicode subscript normalization
+- formula tokenization and grouped parsing
+- count aggregation helpers
+- small math helpers used by chemistry tools
 
-Join our community of developers creating universal apps.
+### `features/chemistry/balancer`
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- equation-side parsing
+- fraction arithmetic
+- matrix / RREF utilities
+- null-space solving
+- balanced equation formatting
+
+### `features/chemistry/molar-mass`
+
+- cached molar-mass calculation
+- result breakdown generation
+
+## Refactor Achievements
+
+- Extracted chemistry logic out of `utils/*` into dedicated feature modules while preserving the existing public APIs.
+- Split the periodic table, worksheet builder, solubility tool, atom renderer, settings screen, and element detail flow into smaller components and hooks.
+- Refactored element profile construction into focused profile builders, isotope assembly, constants, and formatting helpers.
+- Converted `app/settings.tsx` and `app/element/[symbol].tsx` into thin route shells backed by feature screens.
+- Split the English element locale dictionary into 7 atomic-number range modules behind the same loader contract.
+- Added `bun test` coverage for formula parsing, equation balancing, molar mass, worksheet generation, and solubility mappings.
+- Brought `typecheck` and `lint:check` back to green after the reorganization.
+
+## Quality Gates
+
+Run these before shipping changes:
+
+```bash
+bun run typecheck
+bun run lint:check
+bun run fmt:check
+bun test
+```
+
+## Development
+
+```bash
+bun install
+bun run start
+```
+
+Useful scripts:
+
+- `bun run ios`
+- `bun run android`
+- `bun run web`
+- `bun run typecheck`
+- `bun run lint:check`
+- `bun run fmt:check`
+- `bun test`
+
+## Test Coverage Added In This Refactor
+
+- grouped and malformed chemical formulas
+- unicode subscript parsing
+- standard and polyatomic equation balancing
+- molar mass totals and unknown element handling
+- worksheet filtering and export formatting
+- solubility lookup and label mapping
+
+Current automated suite: `12` passing tests across `5` chemistry-focused test files.

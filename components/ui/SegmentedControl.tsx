@@ -17,7 +17,7 @@ export const SegmentedControl = <T extends string>({
   onValueChange,
 }: SegmentedControlProps<T>) => {
   return (
-    <View className="flex-row rounded-[24px] border border-[#d6e5ed] bg-white p-1 shadow-panel">
+    <View className="flex-row rounded-[24px] border border-[#d6e5ed] bg-white p-1 shadow-panel dark:border-line-dark dark:bg-panel-muted-dark">
       {options.map((option) => {
         const active = option.value === value
         return (
@@ -27,7 +27,7 @@ export const SegmentedControl = <T extends string>({
             className={`flex-1 rounded-[20px] px-4 py-3 ${active ? 'bg-accent' : 'bg-transparent'}`}
           >
             <Text
-              className={`text-center text-[16px] font-semibold ${active ? 'text-white' : 'text-slate-500'}`}
+              className={`text-center text-[16px] font-semibold ${active ? 'text-white' : 'text-slate-500 dark:text-[#95abbb]'}`}
             >
               {option.label}
             </Text>
