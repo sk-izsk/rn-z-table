@@ -46,7 +46,8 @@ export const STABLE_MASS_NUMBERS: Record<number, number[]> = {
   40: [90, 91, 92, 94, 96],
   41: [93],
   42: [92, 94, 95, 96, 97, 98, 100],
-  43: [], // Tc — no stable isotopes
+  // Tc — no stable isotopes
+  43: [],
   44: [96, 98, 99, 100, 101, 102, 104],
   45: [103],
   46: [102, 104, 105, 106, 108, 110],
@@ -64,7 +65,8 @@ export const STABLE_MASS_NUMBERS: Record<number, number[]> = {
   58: [136, 138, 140, 142],
   59: [141],
   60: [142, 143, 144, 145, 146, 148, 150],
-  61: [], // Pm — no stable isotopes
+  // Pm — no stable isotopes
+  61: [],
   62: [144, 147, 148, 149, 150, 152, 154],
   63: [151, 153],
   64: [152, 154, 155, 156, 157, 158, 160],
@@ -139,9 +141,12 @@ export const KEY_RADIOACTIVE_MASS_NUMBERS: Record<number, number[]> = {
  * These are appended to the stable list so they appear in the modal.
  */
 export const NOTABLE_RADIOACTIVE_MASS_NUMBERS: Record<number, number[]> = {
-  6: [14], // Carbon-14 — radiocarbon dating
-  19: [40], // Potassium-40 — natural radioactivity
-  37: [87], // Rubidium-87
+  // Carbon-14 — radiocarbon dating
+  6: [14],
+  // Potassium-40 — natural radioactivity
+  19: [40],
+  // Rubidium-87
+  37: [87],
 }
 
 /**

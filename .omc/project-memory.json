@@ -1,0 +1,290 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1780869076817,
+  "projectRoot": "/Volumes/Mac Mini 1tb Ext/Projects/React Native/z-table",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "react",
+        "version": "19.1.0",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.1.0",
+        "category": "frontend"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": "npm test",
+    "lintCommand": "npm run lint",
+    "devCommand": "npm run start",
+    "scripts": {
+      "start": "expo start",
+      "reset-project": "node ./scripts/reset-project.js",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web",
+      "typecheck": "tsc --noEmit",
+      "test": "bun test",
+      "lint": "oxlint . --fix",
+      "lint:check": "oxlint .",
+      "fmt": "oxfmt . --write",
+      "fmt:check": "oxfmt . --check"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": "ES modules",
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "app",
+      "assets",
+      "components",
+      "lib",
+      "scripts",
+      "test"
+    ],
+    "gitBranches": {
+      "defaultBranch": "dev",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "app": {
+      "path": "app",
+      "purpose": "Application code",
+      "fileCount": 6,
+      "lastAccessed": 1780869076713,
+      "keyFiles": [
+        "_layout.tsx",
+        "index.tsx",
+        "ions.tsx",
+        "settings.tsx",
+        "tools.tsx"
+      ]
+    },
+    "assets": {
+      "path": "assets",
+      "purpose": "Static assets",
+      "fileCount": 0,
+      "lastAccessed": 1780869076716,
+      "keyFiles": []
+    },
+    "components": {
+      "path": "components",
+      "purpose": "UI components",
+      "fileCount": 6,
+      "lastAccessed": 1780869076717,
+      "keyFiles": [
+        "external-link.tsx",
+        "haptic-tab.tsx",
+        "hello-wave.tsx",
+        "parallax-scroll-view.tsx",
+        "themed-text.tsx"
+      ]
+    },
+    "constants": {
+      "path": "constants",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1780869076717,
+      "keyFiles": [
+        "routes.ts",
+        "spacing.ts",
+        "theme.ts"
+      ]
+    },
+    "data": {
+      "path": "data",
+      "purpose": "Data files",
+      "fileCount": 1,
+      "lastAccessed": 1780869076718,
+      "keyFiles": [
+        "periodicTableData.ts"
+      ]
+    },
+    "dist": {
+      "path": "dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 8,
+      "lastAccessed": 1780869076719,
+      "keyFiles": [
+        "+not-found.html",
+        "_sitemap.html",
+        "favicon.ico",
+        "index.html",
+        "ions.html"
+      ]
+    },
+    "features": {
+      "path": "features",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1780869076720,
+      "keyFiles": []
+    },
+    "hooks": {
+      "path": "hooks",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1780869076720,
+      "keyFiles": [
+        "use-color-scheme.ts",
+        "use-color-scheme.web.ts",
+        "use-theme-color.ts",
+        "useAtomShells.ts",
+        "useEquationBalancer.ts"
+      ]
+    },
+    "i18n": {
+      "path": "i18n",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1780869076720,
+      "keyFiles": [
+        "config.ts",
+        "locale-loaders.ts",
+        "localize.ts",
+        "types.ts"
+      ]
+    },
+    "lib": {
+      "path": "lib",
+      "purpose": "Library code",
+      "fileCount": 3,
+      "lastAccessed": 1780869076721,
+      "keyFiles": [
+        "async-storage.ts",
+        "i18n-bootstrap.ts",
+        "worker-fallback.ts"
+      ]
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 1,
+      "lastAccessed": 1780869076721,
+      "keyFiles": [
+        "reset-project.js"
+      ]
+    },
+    "stores": {
+      "path": "stores",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1780869076721,
+      "keyFiles": [
+        "animationStore.ts",
+        "elementSelectionStore.ts",
+        "filterStore.ts",
+        "languageStore.ts",
+        "massUnitStore.ts"
+      ]
+    },
+    "styles": {
+      "path": "styles",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1780869076722,
+      "keyFiles": [
+        "colors.ts",
+        "shadows.ts",
+        "tokens.ts"
+      ]
+    },
+    "test": {
+      "path": "test",
+      "purpose": "Test files",
+      "fileCount": 1,
+      "lastAccessed": 1780869076722,
+      "keyFiles": [
+        "bun-test.d.ts"
+      ]
+    },
+    "types": {
+      "path": "types",
+      "purpose": "Type definitions",
+      "fileCount": 2,
+      "lastAccessed": 1780869076722,
+      "keyFiles": [
+        "elementProfile.ts",
+        "ions.ts"
+      ]
+    },
+    "utils": {
+      "path": "utils",
+      "purpose": "Utility functions",
+      "fileCount": 9,
+      "lastAccessed": 1780869076722,
+      "keyFiles": [
+        "atomModel.ts",
+        "balancer.ts",
+        "chemicalDisplay.ts",
+        "chemistry.ts",
+        "elementModalUtils.ts"
+      ]
+    },
+    "dist/assets": {
+      "path": "dist/assets",
+      "purpose": "Static assets",
+      "fileCount": 0,
+      "lastAccessed": 1780869076724,
+      "keyFiles": []
+    },
+    "features/app": {
+      "path": "features/app",
+      "purpose": "Application code",
+      "fileCount": 2,
+      "lastAccessed": 1780869076725,
+      "keyFiles": [
+        "AppStack.tsx",
+        "useAppBootstrap.ts"
+      ]
+    },
+    "test/components": {
+      "path": "test/components",
+      "purpose": "UI components",
+      "fileCount": 0,
+      "lastAccessed": 1780869076726,
+      "keyFiles": []
+    },
+    "test/utils": {
+      "path": "test/utils",
+      "purpose": "Utility functions",
+      "fileCount": 0,
+      "lastAccessed": 1780869076726,
+      "keyFiles": []
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}

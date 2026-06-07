@@ -17,9 +17,9 @@ const i18next = createInstance()
 
 let initPromise: Promise<I18nInstance> | null = null
 
-export const ensureI18nReady = async (): Promise<I18nInstance> => {
+export const ensureI18nReady = (): Promise<I18nInstance> => {
   if (i18next.isInitialized) {
-    return i18next
+    return Promise.resolve(i18next)
   }
 
   if (!initPromise) {

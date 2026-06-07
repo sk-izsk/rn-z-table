@@ -63,7 +63,7 @@ export const toSuperscript = (value: number): string =>
     .join('')
 
 export const formatIonSymbol = (ionStr: string): string => {
-  const match = ionStr.match(/^([A-Za-z]+)([+-])(\d+)?$/)
+  const match = ionStr.match(/^([A-Za-z]+)([+-])(\d+)?$/u)
   if (!match) {
     return ionStr
   }
@@ -83,7 +83,7 @@ export const parseCommonIons = (
   }
 
   return ionStr.split(', ').map((raw) => {
-    const match = raw.match(/^([A-Za-z]+)([+-]\d+)$/)
+    const match = raw.match(/^([A-Za-z]+)([+-]\d+)$/u)
     if (!match) {
       return { notation: formatIonSymbol(raw), label: '' }
     }

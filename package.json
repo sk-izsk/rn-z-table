@@ -10,6 +10,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
+    "test": "bun test",
     "lint": "oxlint . --fix",
     "lint:check": "oxlint .",
     "fmt": "oxfmt . --write",

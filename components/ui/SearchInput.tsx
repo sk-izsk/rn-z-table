@@ -9,7 +9,7 @@ type SearchInputProps = {
 
 export const SearchInput = ({ value, placeholder, onChangeText }: SearchInputProps) => {
   return (
-    <View className="mb-4 flex-row items-center rounded-2xl border border-[#d5e3ec] bg-white px-4 py-3">
+    <View className="mb-4 flex-row items-center rounded-2xl border border-[#d5e3ec] bg-white px-4 py-3 dark:border-line-dark dark:bg-panel-dark">
       <Ionicons name="search" size={18} color="#708295" />
       <TextInput
         value={value}
@@ -18,7 +18,7 @@ export const SearchInput = ({ value, placeholder, onChangeText }: SearchInputPro
         placeholderTextColor="#8a99aa"
         autoCapitalize="none"
         autoCorrect={false}
-        className="ml-3 flex-1 text-[16px] text-ink"
+        className="ml-3 flex-1 text-[16px] text-ink dark:text-ink-dark"
         accessibilityLabel={placeholder}
       />
     </View>
